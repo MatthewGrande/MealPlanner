@@ -1,10 +1,4 @@
-{
-  "language": "java,
-  "os": [
-    "linux"
-    ],
-   "script": [
-     "mvn clean install",
-     "mvn test"
-    ]
-}
+language: java
+script:
+- mvn clean install
+- mvn test
