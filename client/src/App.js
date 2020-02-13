@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.css';
+import { CSSReset, ThemeProvider } from '@chakra-ui/core';
+
+import SampleComponent from './components/SampleComponent';
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1>Meal Planner</h1>
-			</header>
-		</div>
+		<ThemeProvider>
+			<CSSReset />
+			<SampleComponent></SampleComponent>
+		</ThemeProvider>
 	);
 }
 
