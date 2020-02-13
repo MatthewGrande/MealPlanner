@@ -1,4 +1,5 @@
 language: java
 script:
+- cd hellocucumber
 - mvn clean install
 - mvn test
