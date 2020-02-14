@@ -16,7 +16,7 @@ public class UserDto {
 	}
 	
 	public String getUsername() {
-		return name;
+		return username;
 	}
 
 	public String getPassword() {
