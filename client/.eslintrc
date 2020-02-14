@@ -1,7 +1,35 @@
 {
-	"extends": "react-app",
-	"plugins": ["prettier"],
+	"extends": ["airbnb", "prettier"],
+	"plugins": ["react", "react-hooks", "prettier"],
+	"parser": "babel-eslint",
 	"rules": {
-		"prettier/prettier": "error"
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [".js", "jsx"]
+			}
+		],
+		"prettier/prettier": ["error"],
+		"react/jsx-indent": 0,
+		"react/jsx-indent-props": 0,
+		"no-unused-vars": 1,
+		"react/prop-types": 0,
+		"react-hooks/rules-of-hooks": "error",
+		"jsx-a11y/label-has-for": 0,
+		"jsx-a11y/label-has-associated-control": 0,
+		"react/jsx-wrap-multilines": 0,
+		"react/no-array-index-key": 0,
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": true,
+				"optionalDependencies": false,
+				"peerDependencies": false
+			}
+		]
+	},
+	"env": {
+		"browser": true,
+		"jest": true
 	}
 }
