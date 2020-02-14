@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { CSSReset, ThemeProvider } from '@chakra-ui/core';
 
 import LandingPage from './routes/LandingPage';
+import LoginRegister from './components/auth/LoginRegister';
 
 function App() {
 	return (
@@ -12,7 +13,10 @@ function App() {
 				<Switch>
 					{/* Add new pages here as a Route */}
 					<Route exact path="/">
-						<LandingPage></LandingPage>
+						<LandingPage />
+					</Route>
+					<Route exact path="/auth">
+						<LoginRegister />
 					</Route>
 				</Switch>
 			</Router>
