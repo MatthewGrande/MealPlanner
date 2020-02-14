@@ -13,7 +13,7 @@ public class MealPlannerApp
 
   //MealPlannerApp Associations
   private List<User> user;
-  private List<Recipe> gameSessionFactory;
+  private List<Recipe> recipies;
 
   //------------------------
   // CONSTRUCTOR
@@ -22,7 +22,7 @@ public class MealPlannerApp
   public MealPlannerApp()
   {
     user = new ArrayList<User>();
-    gameSessionFactory = new ArrayList<Recipe>();
+    recipies = new ArrayList<Recipe>();
   }
 
   //------------------------
@@ -59,33 +59,33 @@ public class MealPlannerApp
     return index;
   }
   /* Code from template association_GetMany */
-  public Recipe getGameSessionFactory(int index)
+  public Recipe getrecipies(int index)
   {
-    Recipe aGameSessionFactory = gameSessionFactory.get(index);
-    return aGameSessionFactory;
+    Recipe arecipies = recipies.get(index);
+    return arecipies;
   }
 
-  public List<Recipe> getGameSessionFactory()
+  public List<Recipe> getrecipies()
   {
-    List<Recipe> newGameSessionFactory = Collections.unmodifiableList(gameSessionFactory);
-    return newGameSessionFactory;
+    List<Recipe> newrecipies = Collections.unmodifiableList(recipies);
+    return newrecipies;
   }
 
-  public int numberOfGameSessionFactory()
+  public int numberOfrecipies()
   {
-    int number = gameSessionFactory.size();
+    int number = recipies.size();
     return number;
   }
 
-  public boolean hasGameSessionFactory()
+  public boolean hasrecipies()
   {
-    boolean has = gameSessionFactory.size() > 0;
+    boolean has = recipies.size() > 0;
     return has;
   }
 
-  public int indexOfGameSessionFactory(Recipe aGameSessionFactory)
+  public int indexOfrecipies(Recipe arecipies)
   {
-    int index = gameSessionFactory.indexOf(aGameSessionFactory);
+    int index = recipies.indexOf(arecipies);
     return index;
   }
   /* Code from template association_MinimumNumberOfMethod */
@@ -161,74 +161,74 @@ public class MealPlannerApp
     return wasAdded;
   }
   /* Code from template association_MinimumNumberOfMethod */
-  public static int minimumNumberOfGameSessionFactory()
+  public static int minimumNumberOfrecipies()
   {
     return 0;
   }
   /* Code from template association_AddManyToOne */
-  public Recipe addGameSessionFactory(int aCalorieCountPerServing)
+  public Recipe addrecipies(int aCalorieCountPerServing)
   {
     return new Recipe(aCalorieCountPerServing, this);
   }
 
-  public boolean addGameSessionFactory(Recipe aGameSessionFactory)
+  public boolean addrecipies(Recipe arecipies)
   {
     boolean wasAdded = false;
-    if (gameSessionFactory.contains(aGameSessionFactory)) { return false; }
-    MealPlannerApp existingApplication = aGameSessionFactory.getApplication();
+    if (recipies.contains(arecipies)) { return false; }
+    MealPlannerApp existingApplication = arecipies.getApplication();
     boolean isNewApplication = existingApplication != null && !this.equals(existingApplication);
     if (isNewApplication)
     {
-      aGameSessionFactory.setApplication(this);
+      arecipies.setApplication(this);
     }
     else
     {
-      gameSessionFactory.add(aGameSessionFactory);
+      recipies.add(arecipies);
     }
     wasAdded = true;
     return wasAdded;
   }
 
-  public boolean removeGameSessionFactory(Recipe aGameSessionFactory)
+  public boolean removerecipies(Recipe arecipies)
   {
     boolean wasRemoved = false;
-    //Unable to remove aGameSessionFactory, as it must always have a application
-    if (!this.equals(aGameSessionFactory.getApplication()))
+    //Unable to remove arecipies, as it must always have a application
+    if (!this.equals(arecipies.getApplication()))
     {
-      gameSessionFactory.remove(aGameSessionFactory);
+      recipies.remove(arecipies);
       wasRemoved = true;
     }
     return wasRemoved;
   }
   /* Code from template association_AddIndexControlFunctions */
-  public boolean addGameSessionFactoryAt(Recipe aGameSessionFactory, int index)
+  public boolean addrecipiesAt(Recipe arecipies, int index)
   {  
     boolean wasAdded = false;
-    if(addGameSessionFactory(aGameSessionFactory))
+    if(addrecipies(arecipies))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfGameSessionFactory()) { index = numberOfGameSessionFactory() - 1; }
-      gameSessionFactory.remove(aGameSessionFactory);
-      gameSessionFactory.add(index, aGameSessionFactory);
+      if(index > numberOfrecipies()) { index = numberOfrecipies() - 1; }
+      recipies.remove(arecipies);
+      recipies.add(index, arecipies);
       wasAdded = true;
     }
     return wasAdded;
   }
 
-  public boolean addOrMoveGameSessionFactoryAt(Recipe aGameSessionFactory, int index)
+  public boolean addOrMoverecipiesAt(Recipe arecipies, int index)
   {
     boolean wasAdded = false;
-    if(gameSessionFactory.contains(aGameSessionFactory))
+    if(recipies.contains(arecipies))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfGameSessionFactory()) { index = numberOfGameSessionFactory() - 1; }
-      gameSessionFactory.remove(aGameSessionFactory);
-      gameSessionFactory.add(index, aGameSessionFactory);
+      if(index > numberOfrecipies()) { index = numberOfrecipies() - 1; }
+      recipies.remove(arecipies);
+      recipies.add(index, arecipies);
       wasAdded = true;
     } 
     else 
     {
-      wasAdded = addGameSessionFactoryAt(aGameSessionFactory, index);
+      wasAdded = addrecipiesAt(arecipies, index);
     }
     return wasAdded;
   }
@@ -242,11 +242,11 @@ public class MealPlannerApp
       user.remove(aUser);
     }
     
-    while (gameSessionFactory.size() > 0)
+    while (recipies.size() > 0)
     {
-      Recipe aGameSessionFactory = gameSessionFactory.get(gameSessionFactory.size() - 1);
-      aGameSessionFactory.delete();
-      gameSessionFactory.remove(aGameSessionFactory);
+      Recipe arecipies = recipies.get(recipies.size() - 1);
+      arecipies.delete();
+      recipies.remove(arecipies);
     }
     
   }

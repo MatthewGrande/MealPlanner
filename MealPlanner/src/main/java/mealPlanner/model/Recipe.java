@@ -30,7 +30,7 @@ public class Recipe
     boolean didAddApplication = setApplication(aApplication);
     if (!didAddApplication)
     {
-      throw new RuntimeException("Unable to create gameSessionFactory due to application. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+      throw new RuntimeException("Unable to create recipies due to application. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
     dietType = new ArrayList<DietType>();
   }
@@ -99,9 +99,9 @@ public class Recipe
     application = aApplication;
     if (existingApplication != null && !existingApplication.equals(aApplication))
     {
-      existingApplication.removeGameSessionFactory(this);
+      existingApplication.removerecipies(this);
     }
-    application.addGameSessionFactory(this);
+    application.addrecipies(this);
     wasSet = true;
     return wasSet;
   }
@@ -194,7 +194,7 @@ public class Recipe
     this.application = null;
     if(placeholderApplication != null)
     {
-      placeholderApplication.removeGameSessionFactory(this);
+      placeholderApplication.removerecipies(this);
     }
     ArrayList<DietType> copyOfDietType = new ArrayList<DietType>(dietType);
     dietType.clear();
