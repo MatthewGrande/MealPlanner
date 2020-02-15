@@ -1,6 +1,7 @@
 package mealPlanner.service;
 
 import java.sql.Date;
+import java.util.List;
 
 import mealPlanner.model.Day;
 import mealPlanner.model.MealPlannerApp;
@@ -21,6 +22,30 @@ public class MealPlannerService {
 		mp.addUser(u);
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return u;
+	}
+	
+	public User deleteUser(String username, String password) throws InvalidInputException {
+		User u = getUser(username);
+		if(u == null) {
+			throw new InvalidInputException("There is no user with that username");
+		}
+		if(!u.getPassword().equals(password)) {
+			throw new InvalidInputException("Incorrect password");
+		}
+		mp.removeUser(u);
+		PersistenceXStream.saveToXMLwithXStream(mp);
+		return u;
+	}
+	
+	public User getUser(String username) {
+		List<User> users = mp.getUsers();
+		
+		for(User u : users) {
+			if(u.getUsername().equals(username)){
+				return u;
+			}
+		}
+		return null;
 	}
 	
 	
