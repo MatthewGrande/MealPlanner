@@ -1,0 +1,18 @@
+<MealPlanner id="1">
+  <users id="2">
+    <User id="3">
+      <username>user1</username>
+      <password>password1</password>
+      <goalCalorie>2000</goalCalorie>
+      <dietType id="4"/>
+      <pastDays id="5"/>
+      <currentDay id="6">
+        <date id="7">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="8"/>
+      </currentDay>
+      <ownedIngredients id="9"/>
+    </User>
+  </users>
+  <recipes id="10"/>
+</MealPlanner>
