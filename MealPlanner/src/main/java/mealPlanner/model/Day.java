@@ -1,31 +1,40 @@
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4785.04bd3fea6 modeling language!*/
 package mealPlanner.model;
 
 import java.sql.Date;
 import java.util.*;
 
-
+// line 40 "model.ump"
+// line 92 "model.ump"
 public class Day
 {
 
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Day Attributes
   private Date date;
   private int calorieCount;
 
   //Day Associations
   private List<Meal> meals;
-  private User user;
 
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
 
-  public Day(Date aDate, int aCalorieCount, User aUser)
+  public Day(Date aDate, int aCalorieCount)
   {
     date = aDate;
     calorieCount = aCalorieCount;
     meals = new ArrayList<Meal>();
-    boolean didAddUser = setUser(aUser);
-    if (!didAddUser)
-    {
-      throw new RuntimeException("Unable to create pastDay due to user. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
-    }
   }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
 
   public boolean setDate(Date aDate)
   {
@@ -52,7 +61,7 @@ public class Day
   {
     return calorieCount;
   }
-
+  /* Code from template association_GetMany */
   public Meal getMeal(int index)
   {
     Meal aMeal = meals.get(index);
@@ -81,11 +90,6 @@ public class Day
   {
     int index = meals.indexOf(aMeal);
     return index;
-  }
-  /* Code from template association_GetOne */
-  public User getUser()
-  {
-    return user;
   }
   /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfMeals()
@@ -160,37 +164,12 @@ public class Day
     return wasAdded;
   }
 
-  public boolean setUser(User aUser)
-  {
-    boolean wasSet = false;
-    if (aUser == null)
-    {
-      return wasSet;
-    }
-
-    User existingUser = user;
-    user = aUser;
-    if (existingUser != null && !existingUser.equals(aUser))
-    {
-      existingUser.removePastDay(this);
-    }
-    user.addPastDay(this);
-    wasSet = true;
-    return wasSet;
-  }
-
   public void delete()
   {
     for(int i=meals.size(); i > 0; i--)
     {
       Meal aMeal = meals.get(i - 1);
       aMeal.delete();
-    }
-    User placeholderUser = user;
-    this.user = null;
-    if(placeholderUser != null)
-    {
-      placeholderUser.removePastDay(this);
     }
   }
 
@@ -199,7 +178,6 @@ public class Day
   {
     return super.toString() + "["+
             "calorieCount" + ":" + getCalorieCount()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "date" + "=" + (getDate() != null ? !getDate().equals(this)  ? getDate().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
-            "  " + "user = "+(getUser()!=null?Integer.toHexString(System.identityHashCode(getUser())):"null");
+            "  " + "date" + "=" + (getDate() != null ? !getDate().equals(this)  ? getDate().toString().replaceAll("  ","    ") : "this" : "null");
   }
 }

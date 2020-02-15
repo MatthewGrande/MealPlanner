@@ -1,9 +1,11 @@
-package mealPlanner.model;
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4785.04bd3fea6 modeling language!*/
 
+package mealPlanner.model;
 import java.util.*;
 
 // line 7 "model.ump"
-// line 65 "model.ump"
+// line 67 "model.ump"
 public class MealPlannerApp
 {
 
@@ -12,8 +14,8 @@ public class MealPlannerApp
   //------------------------
 
   //MealPlannerApp Associations
-  private List<User> user;
-  private List<Recipe> recipies;
+  private List<User> users;
+  private List<Recipe> recipes;
 
   //------------------------
   // CONSTRUCTOR
@@ -21,8 +23,8 @@ public class MealPlannerApp
 
   public MealPlannerApp()
   {
-    user = new ArrayList<User>();
-    recipies = new ArrayList<Recipe>();
+    users = new ArrayList<User>();
+    recipes = new ArrayList<Recipe>();
   }
 
   //------------------------
@@ -31,88 +33,74 @@ public class MealPlannerApp
   /* Code from template association_GetMany */
   public User getUser(int index)
   {
-    User aUser = user.get(index);
+    User aUser = users.get(index);
     return aUser;
   }
 
-  public List<User> getUser()
+  public List<User> getUsers()
   {
-    List<User> newUser = Collections.unmodifiableList(user);
-    return newUser;
+    List<User> newUsers = Collections.unmodifiableList(users);
+    return newUsers;
   }
 
-  public int numberOfUser()
+  public int numberOfUsers()
   {
-    int number = user.size();
+    int number = users.size();
     return number;
   }
 
-  public boolean hasUser()
+  public boolean hasUsers()
   {
-    boolean has = user.size() > 0;
+    boolean has = users.size() > 0;
     return has;
   }
 
   public int indexOfUser(User aUser)
   {
-    int index = user.indexOf(aUser);
+    int index = users.indexOf(aUser);
     return index;
   }
   /* Code from template association_GetMany */
-  public Recipe getrecipies(int index)
+  public Recipe getRecipe(int index)
   {
-    Recipe arecipies = recipies.get(index);
-    return arecipies;
+    Recipe aRecipe = recipes.get(index);
+    return aRecipe;
   }
 
-  public List<Recipe> getrecipies()
+  public List<Recipe> getRecipes()
   {
-    List<Recipe> newrecipies = Collections.unmodifiableList(recipies);
-    return newrecipies;
+    List<Recipe> newRecipes = Collections.unmodifiableList(recipes);
+    return newRecipes;
   }
 
-  public int numberOfrecipies()
+  public int numberOfRecipes()
   {
-    int number = recipies.size();
+    int number = recipes.size();
     return number;
   }
 
-  public boolean hasrecipies()
+  public boolean hasRecipes()
   {
-    boolean has = recipies.size() > 0;
+    boolean has = recipes.size() > 0;
     return has;
   }
 
-  public int indexOfrecipies(Recipe arecipies)
+  public int indexOfRecipe(Recipe aRecipe)
   {
-    int index = recipies.indexOf(arecipies);
+    int index = recipes.indexOf(aRecipe);
     return index;
   }
   /* Code from template association_MinimumNumberOfMethod */
-  public static int minimumNumberOfUser()
+  public static int minimumNumberOfUsers()
   {
     return 0;
   }
-  /* Code from template association_AddManyToOne */
-  public User addUser(int aGoalCalorie)
-  {
-    return new User(aGoalCalorie, this);
-  }
-
+  /* Code from template association_AddUnidirectionalMany */
   public boolean addUser(User aUser)
   {
     boolean wasAdded = false;
-    if (user.contains(aUser)) { return false; }
-    MealPlannerApp existingApplication = aUser.getApplication();
-    boolean isNewApplication = existingApplication != null && !this.equals(existingApplication);
-    if (isNewApplication)
-    {
-      aUser.setApplication(this);
-    }
-    else
-    {
-      user.add(aUser);
-    }
+    if (users.contains(aUser)) { return false; }
+    users.add(aUser);
     wasAdded = true;
     return wasAdded;
   }
@@ -120,10 +108,9 @@ public class MealPlannerApp
   public boolean removeUser(User aUser)
   {
     boolean wasRemoved = false;
-    //Unable to remove aUser, as it must always have a application
-    if (!this.equals(aUser.getApplication()))
+    if (users.contains(aUser))
     {
-      user.remove(aUser);
+      users.remove(aUser);
       wasRemoved = true;
     }
     return wasRemoved;
@@ -135,9 +122,9 @@ public class MealPlannerApp
     if(addUser(aUser))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfUser()) { index = numberOfUser() - 1; }
-      user.remove(aUser);
-      user.add(index, aUser);
+      if(index > numberOfUsers()) { index = numberOfUsers() - 1; }
+      users.remove(aUser);
+      users.add(index, aUser);
       wasAdded = true;
     }
     return wasAdded;
@@ -146,12 +133,12 @@ public class MealPlannerApp
   public boolean addOrMoveUserAt(User aUser, int index)
   {
     boolean wasAdded = false;
-    if(user.contains(aUser))
+    if(users.contains(aUser))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfUser()) { index = numberOfUser() - 1; }
-      user.remove(aUser);
-      user.add(index, aUser);
+      if(index > numberOfUsers()) { index = numberOfUsers() - 1; }
+      users.remove(aUser);
+      users.add(index, aUser);
       wasAdded = true;
     } 
     else 
@@ -161,94 +148,67 @@ public class MealPlannerApp
     return wasAdded;
   }
   /* Code from template association_MinimumNumberOfMethod */
-  public static int minimumNumberOfrecipies()
+  public static int minimumNumberOfRecipes()
   {
     return 0;
   }
-  /* Code from template association_AddManyToOne */
-  public Recipe addrecipies(int aCalorieCountPerServing)
-  {
-    return new Recipe(aCalorieCountPerServing, this);
-  }
-
-  public boolean addrecipies(Recipe arecipies)
+  /* Code from template association_AddUnidirectionalMany */
+  public boolean addRecipe(Recipe aRecipe)
   {
     boolean wasAdded = false;
-    if (recipies.contains(arecipies)) { return false; }
-    MealPlannerApp existingApplication = arecipies.getApplication();
-    boolean isNewApplication = existingApplication != null && !this.equals(existingApplication);
-    if (isNewApplication)
-    {
-      arecipies.setApplication(this);
-    }
-    else
-    {
-      recipies.add(arecipies);
-    }
+    if (recipes.contains(aRecipe)) { return false; }
+    recipes.add(aRecipe);
     wasAdded = true;
     return wasAdded;
   }
 
-  public boolean removerecipies(Recipe arecipies)
+  public boolean removeRecipe(Recipe aRecipe)
   {
     boolean wasRemoved = false;
-    //Unable to remove arecipies, as it must always have a application
-    if (!this.equals(arecipies.getApplication()))
+    if (recipes.contains(aRecipe))
     {
-      recipies.remove(arecipies);
+      recipes.remove(aRecipe);
       wasRemoved = true;
     }
     return wasRemoved;
   }
   /* Code from template association_AddIndexControlFunctions */
-  public boolean addrecipiesAt(Recipe arecipies, int index)
+  public boolean addRecipeAt(Recipe aRecipe, int index)
   {  
     boolean wasAdded = false;
-    if(addrecipies(arecipies))
+    if(addRecipe(aRecipe))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfrecipies()) { index = numberOfrecipies() - 1; }
-      recipies.remove(arecipies);
-      recipies.add(index, arecipies);
+      if(index > numberOfRecipes()) { index = numberOfRecipes() - 1; }
+      recipes.remove(aRecipe);
+      recipes.add(index, aRecipe);
       wasAdded = true;
     }
     return wasAdded;
   }
 
-  public boolean addOrMoverecipiesAt(Recipe arecipies, int index)
+  public boolean addOrMoveRecipeAt(Recipe aRecipe, int index)
   {
     boolean wasAdded = false;
-    if(recipies.contains(arecipies))
+    if(recipes.contains(aRecipe))
     {
       if(index < 0 ) { index = 0; }
-      if(index > numberOfrecipies()) { index = numberOfrecipies() - 1; }
-      recipies.remove(arecipies);
-      recipies.add(index, arecipies);
+      if(index > numberOfRecipes()) { index = numberOfRecipes() - 1; }
+      recipes.remove(aRecipe);
+      recipes.add(index, aRecipe);
       wasAdded = true;
     } 
     else 
     {
-      wasAdded = addrecipiesAt(arecipies, index);
+      wasAdded = addRecipeAt(aRecipe, index);
     }
     return wasAdded;
   }
 
   public void delete()
   {
-    while (user.size() > 0)
-    {
-      User aUser = user.get(user.size() - 1);
-      aUser.delete();
-      user.remove(aUser);
-    }
-    
-    while (recipies.size() > 0)
-    {
-      Recipe arecipies = recipies.get(recipies.size() - 1);
-      arecipies.delete();
-      recipies.remove(arecipies);
-    }
-    
+    users.clear();
+    recipes.clear();
   }
 
 }

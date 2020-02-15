@@ -1,11 +1,11 @@
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4785.04bd3fea6 modeling language!*/
+
 package mealPlanner.model;
-
-
-
 import java.util.*;
 
-// line 23 "model.ump"
-// line 76 "model.ump"
+// line 27 "model.ump"
+// line 82 "model.ump"
 public class Recipe
 {
 
@@ -17,21 +17,15 @@ public class Recipe
   private int calorieCountPerServing;
 
   //Recipe Associations
-  private MealPlannerApp application;
   private List<DietType> dietType;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Recipe(int aCalorieCountPerServing, MealPlannerApp aApplication)
+  public Recipe(int aCalorieCountPerServing)
   {
     calorieCountPerServing = aCalorieCountPerServing;
-    boolean didAddApplication = setApplication(aApplication);
-    if (!didAddApplication)
-    {
-      throw new RuntimeException("Unable to create recipies due to application. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
-    }
     dietType = new ArrayList<DietType>();
   }
 
@@ -50,11 +44,6 @@ public class Recipe
   public int getCalorieCountPerServing()
   {
     return calorieCountPerServing;
-  }
-  /* Code from template association_GetOne */
-  public MealPlannerApp getApplication()
-  {
-    return application;
   }
   /* Code from template association_GetMany */
   public DietType getDietType(int index)
@@ -86,72 +75,28 @@ public class Recipe
     int index = dietType.indexOf(aDietType);
     return index;
   }
-  /* Code from template association_SetOneToMany */
-  public boolean setApplication(MealPlannerApp aApplication)
-  {
-    boolean wasSet = false;
-    if (aApplication == null)
-    {
-      return wasSet;
-    }
-
-    MealPlannerApp existingApplication = application;
-    application = aApplication;
-    if (existingApplication != null && !existingApplication.equals(aApplication))
-    {
-      existingApplication.removerecipies(this);
-    }
-    application.addrecipies(this);
-    wasSet = true;
-    return wasSet;
-  }
   /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfDietType()
   {
     return 0;
   }
-  /* Code from template association_AddManyToManyMethod */
+  /* Code from template association_AddUnidirectionalMany */
   public boolean addDietType(DietType aDietType)
   {
     boolean wasAdded = false;
     if (dietType.contains(aDietType)) { return false; }
     dietType.add(aDietType);
-    if (aDietType.indexOfRecipe(this) != -1)
-    {
-      wasAdded = true;
-    }
-    else
-    {
-      wasAdded = aDietType.addRecipe(this);
-      if (!wasAdded)
-      {
-        dietType.remove(aDietType);
-      }
-    }
+    wasAdded = true;
     return wasAdded;
   }
-  /* Code from template association_RemoveMany */
+
   public boolean removeDietType(DietType aDietType)
   {
     boolean wasRemoved = false;
-    if (!dietType.contains(aDietType))
+    if (dietType.contains(aDietType))
     {
-      return wasRemoved;
-    }
-
-    int oldIndex = dietType.indexOf(aDietType);
-    dietType.remove(oldIndex);
-    if (aDietType.indexOfRecipe(this) == -1)
-    {
+      dietType.remove(aDietType);
       wasRemoved = true;
-    }
-    else
-    {
-      wasRemoved = aDietType.removeRecipe(this);
-      if (!wasRemoved)
-      {
-        dietType.add(oldIndex,aDietType);
-      }
     }
     return wasRemoved;
   }
@@ -190,25 +135,13 @@ public class Recipe
 
   public void delete()
   {
-    MealPlannerApp placeholderApplication = application;
-    this.application = null;
-    if(placeholderApplication != null)
-    {
-      placeholderApplication.removerecipies(this);
-    }
-    ArrayList<DietType> copyOfDietType = new ArrayList<DietType>(dietType);
     dietType.clear();
-    for(DietType aDietType : copyOfDietType)
-    {
-      aDietType.removeRecipe(this);
-    }
   }
 
 
   public String toString()
   {
     return super.toString() + "["+
-            "calorieCountPerServing" + ":" + getCalorieCountPerServing()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "application = "+(getApplication()!=null?Integer.toHexString(System.identityHashCode(getApplication())):"null");
+            "calorieCountPerServing" + ":" + getCalorieCountPerServing()+ "]";
   }
 }

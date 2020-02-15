@@ -1,4 +1,10 @@
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4785.04bd3fea6 modeling language!*/
+
 package mealPlanner.model;
+
+// line 52 "model.ump"
+// line 102 "model.ump"
 public class OwnedIngredient
 {
 
@@ -20,10 +26,9 @@ public class OwnedIngredient
   public OwnedIngredient(int aAmount, Ingredient aIngredient, User aUser)
   {
     amount = aAmount;
-    boolean didAddIngredient = setIngredient(aIngredient);
-    if (!didAddIngredient)
+    if (!setIngredient(aIngredient))
     {
-      throw new RuntimeException("Unable to create ownedIngredient due to ingredient. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+      throw new RuntimeException("Unable to create OwnedIngredient due to aIngredient. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
     boolean didAddUser = setUser(aUser);
     if (!didAddUser)
@@ -58,23 +63,15 @@ public class OwnedIngredient
   {
     return user;
   }
-  /* Code from template association_SetOneToMany */
-  public boolean setIngredient(Ingredient aIngredient)
+  /* Code from template association_SetUnidirectionalOne */
+  public boolean setIngredient(Ingredient aNewIngredient)
   {
     boolean wasSet = false;
-    if (aIngredient == null)
+    if (aNewIngredient != null)
     {
-      return wasSet;
+      ingredient = aNewIngredient;
+      wasSet = true;
     }
-
-    Ingredient existingIngredient = ingredient;
-    ingredient = aIngredient;
-    if (existingIngredient != null && !existingIngredient.equals(aIngredient))
-    {
-      existingIngredient.removeOwnedIngredient(this);
-    }
-    ingredient.addOwnedIngredient(this);
-    wasSet = true;
     return wasSet;
   }
   /* Code from template association_SetOneToMany */
@@ -99,12 +96,7 @@ public class OwnedIngredient
 
   public void delete()
   {
-    Ingredient placeholderIngredient = ingredient;
-    this.ingredient = null;
-    if(placeholderIngredient != null)
-    {
-      placeholderIngredient.removeOwnedIngredient(this);
-    }
+    ingredient = null;
     User placeholderUser = user;
     this.user = null;
     if(placeholderUser != null)

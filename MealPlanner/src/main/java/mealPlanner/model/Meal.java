@@ -1,5 +1,10 @@
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4785.04bd3fea6 modeling language!*/
+
 package mealPlanner.model;
 
+// line 35 "model.ump"
+// line 87 "model.ump"
 public class Meal
 {
 
