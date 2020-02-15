@@ -8,7 +8,6 @@ import java.io.IOException;
 import org.springframework.stereotype.Repository;
 import com.thoughtworks.xstream.XStream;
 
-import mealPlanner.model.MealManager;
 import mealPlanner.model.MealPlannerApp;
 import mealPlanner.model.Recipe;
 import mealPlanner.model.User;

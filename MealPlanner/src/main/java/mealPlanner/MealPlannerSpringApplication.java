@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import mealPlanner.controller.configuration.WebFrontendProperties;
-import mealPlanner.model.MealManager;
+
 import mealPlanner.model.MealPlannerApp;
 import mealPlanner.persistence.PersistenceXStream;
 
