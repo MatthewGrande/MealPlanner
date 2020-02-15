@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import mealPlanner.controller.configuration.WebFrontendProperties;
 import mealPlanner.model.MealManager;
+import mealPlanner.model.MealPlannerApp;
 import mealPlanner.persistence.PersistenceXStream;
 
 @SpringBootApplication
@@ -37,7 +38,7 @@ public class MealPlannerSpringApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public MealManager mealMan() {
+	public MealPlannerApp mealMan() {
 		return PersistenceXStream.initializeModelManager(PersistenceXStream.getFilename());
 
 	}

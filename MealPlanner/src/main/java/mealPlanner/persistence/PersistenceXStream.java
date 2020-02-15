@@ -23,9 +23,9 @@ public class PersistenceXStream {
 	// a server is required
 	private static String filename = "data.xml";
 
-	public static MealManager initializeModelManager(String fileName) {
+	public static MealPlannerApp initializeModelManager(String fileName) {
 
-		MealManager mm;
+		MealPlannerApp mp;
 
 		setAlias("User", User.class);
 		setAlias("MealPlanner", MealPlannerApp.class);
@@ -33,7 +33,7 @@ public class PersistenceXStream {
 		// load model if exists, create otherwise
 		File file = new File(fileName);
 		if (file.exists()) {
-			mm = (MealManager) loadFromXMLwithXStream();
+			mp = (MealPlannerApp) loadFromXMLwithXStream();
 		} else {
 			try {
 				file.createNewFile();
@@ -41,10 +41,10 @@ public class PersistenceXStream {
 				e.printStackTrace();
 				System.exit(1);
 			}
-			mm = new MealManager();
-			saveToXMLwithXStream(mm);
+			mp = new MealPlannerApp();
+			saveToXMLwithXStream(mp);
 		}
-		return mm;
+		return mp;
 	}
 
 	public static boolean saveToXMLwithXStream(Object obj) {
