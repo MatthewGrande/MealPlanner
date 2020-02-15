@@ -23,7 +23,7 @@ public class MealPlannerService {
 		mp.addUser(user2);
 		PersistenceXStream.saveToXMLwithXStream(mp);
 	}
-	
+
 	public User createUser(String username, String password, int calorieGoal) {
 		Day today = new Day(new Date(0, 0, 0), 0);
 		User u = new User(username, password, calorieGoal, today);

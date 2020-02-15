@@ -1,5 +1,16 @@
 package mealPlanner.controller;
- 
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import mealPlanner.dto.UserDto;
+import mealPlanner.model.User;
+import mealPlanner.service.InvalidInputException;
+import mealPlanner.service.MealPlannerService;
+
 @RestController 
 
 public class MealPlannerRestController {
@@ -14,7 +25,7 @@ public class MealPlannerRestController {
 			@PathVariable("password") String password,
 			@PathVariable("calorieGoal") int calorieGoal) throws InvalidInputException {
 		
-		User u = service.createUser(username, password, calorieGoal)
+		User u = service.createUser(username, password, calorieGoal);
 		return convertToDto(u); 
 	}
 	
