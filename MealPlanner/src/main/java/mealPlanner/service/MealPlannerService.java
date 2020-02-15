@@ -17,15 +17,6 @@ public class MealPlannerService {
 	private MealPlannerApp mp;
 	public MealPlannerService(MealPlannerApp mp) {
 		this.mp = mp;
-		Date date1= new Date(0,0,0);
-		Date date2= new Date(0,0,0);
-		Day day1= new Day(date1,0);
-		Day day2= new Day(date2,0);
-		User user1 = new User("John","123",2000,day1);
-		User user2 = new User("Daniel","122",2000,day2);
-		mp.addUser(user1);
-		mp.addUser(user2);
-		PersistenceXStream.saveToXMLwithXStream(mp);
 	}
 
 	public User createUser(String username, String password, int calorieGoal) throws InvalidInputException  {
@@ -43,6 +34,30 @@ public class MealPlannerService {
 		mp.addUser(u);
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return u;
+	}
+	
+	public User deleteUser(String username, String password) throws InvalidInputException {
+		User u = getUser(username);
+		if(u == null) {
+			throw new InvalidInputException("There is no user with that username");
+		}
+		if(!u.getPassword().equals(password)) {
+			throw new InvalidInputException("Incorrect password");
+		}
+		mp.removeUser(u);
+		PersistenceXStream.saveToXMLwithXStream(mp);
+		return u;
+	}
+	
+	public User getUser(String username) {
+		List<User> users = mp.getUsers();
+		
+		for(User u : users) {
+			if(u.getUsername().equals(username)){
+				return u;
+			}
+		}
+		return null;
 	}
 	
 	

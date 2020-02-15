@@ -1,1 +1,4 @@
-<TreePLE id="1"/>
+<MealPlanner id="1">
+  <users id="2"/>
+  <recipes id="3"/>
+</MealPlanner>

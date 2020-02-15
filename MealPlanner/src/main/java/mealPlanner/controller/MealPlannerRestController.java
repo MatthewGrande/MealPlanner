@@ -31,6 +31,17 @@ public class MealPlannerRestController {
 		return convertToDto(u); 
 	}
 	
+	@PostMapping(value = { "/deleteUser/{username}/{password}" })
+
+	public UserDto deleteUser(
+			@PathVariable("username") String username,
+			@PathVariable("password") String password) throws InvalidInputException {
+
+		User u = service.deleteUser(username, password);
+
+		return convertToDto(u);
+	}
+	
 	private UserDto convertToDto(User u) {
 
 		return modelMapper.map(u, UserDto.class);
