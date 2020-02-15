@@ -42,6 +42,25 @@ public class MealPlannerApp
     List<User> newUsers = Collections.unmodifiableList(users);
     return newUsers;
   }
+  
+  //******************//
+  /**
+   * Added Method
+   * checks if user exists 
+   * @param user
+   * @return boolean
+   */
+  public boolean hasUser(User user) {
+	  
+	  
+	  for(User u: users) {
+		  if(u.getUsername().equals(user.getUsername())) {
+			  return true;
+		  }
+	  }
+	  return false;
+  }  
+  //******************//
 
   public int numberOfUsers()
   {

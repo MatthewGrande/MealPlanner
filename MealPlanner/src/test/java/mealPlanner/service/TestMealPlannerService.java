@@ -41,7 +41,7 @@ public class TestMealPlannerService {
 	}
 
 	@Test
-	public void testCreateUser() {
+	public void testCreateUser() throws InvalidInputException {
 
 		assertEquals(0, mp.getUsers().size());
 		
