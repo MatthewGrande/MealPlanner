@@ -20,22 +20,22 @@ public class TestPersistence {
 
 	@After
 	public void tearDown() throws Exception {
-		// mm.delete();
+		 mp.delete();
 	}
 
 	@Test
 	public void test() {
 		// initialize model file
 		
-		PersistenceXStream.initializeModelManager("output" + File.separator + "data.xml");
+		PersistenceXStream.initializeModelManager( "data.xml");
 		// save model that is loaded during test setup
 		if (!PersistenceXStream.saveToXMLwithXStream(mp)) {
 			fail("Could not save file.");
 		}
 		
 		// clear the model in memory
-		// mm.delete();
-		// assertEquals(0, mm.getTrees().size());
+		 mp.delete();
+		 
 
 		// load model
 		mp = (MealPlannerApp) PersistenceXStream.loadFromXMLwithXStream();
