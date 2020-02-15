@@ -2,7 +2,6 @@ package mealPlanner.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import java.io.File;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,18 +15,8 @@ public class TestMealPlannerService {
 	@Before
 	public void setUp() throws Exception {
 		mp = new MealPlannerApp();
-
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		 mp.delete();
-	}
-
-	@Test
-	public void test() {
-		// initialize model file
 		
+		// initialize model file
 		PersistenceXStream.initializeModelManager( "data.xml");
 		// save model that is loaded during test setup
 		if (!PersistenceXStream.saveToXMLwithXStream(mp)) {
@@ -43,6 +32,17 @@ public class TestMealPlannerService {
 		if (mp == null) {
 			fail("Could not load file.");
 		}
+
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		 mp.delete();
+	}
+
+	@Test
+	public void testCreateUser() {
+
 		assertEquals(0, mp.getUsers().size());
 		
 		String username = "user1";
@@ -56,6 +56,20 @@ public class TestMealPlannerService {
 		assertEquals(username, mp.getUser(0).getUsername());
 		assertEquals(password, mp.getUser(0).getPassword());
 		assertEquals(calorieGoal, mp.getUser(0).getGoalCalorie());
+	}
+	
+	@Test
+	public void testDeleteUser() throws InvalidInputException {
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+		assertEquals(1, mp.getUsers().size());	
+		service.deleteUser(username, password);
+		assertEquals(0, mp.getUsers().size());	
 
 	}
 }
