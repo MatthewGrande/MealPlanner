@@ -6,6 +6,8 @@ import LandingPage from './routes/LandingPage';
 import LoginRegister from './components/auth/LoginRegister';
 import MealLog from './routes/MealLog';
 import EnterIngredients from './routes/EnterIngredients';
+import AccountSettings from './routes/AccountSettings';
+import DietInformation from './routes/DietInformation';
 
 function App() {
 	return (
@@ -25,6 +27,12 @@ function App() {
 					</Route>
 					<Route exact path="/EnterIngredients">
 						<EnterIngredients></EnterIngredients>
+					</Route>
+					<Route exact path="/AccountSettings">
+						<AccountSettings></AccountSettings>
+					</Route>
+					<Route exact path="/DietInformation">
+						<DietInformation></DietInformation>
 					</Route>
 				</Switch>
 			</Router>
