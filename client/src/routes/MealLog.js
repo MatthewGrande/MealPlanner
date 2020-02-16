@@ -1,18 +1,11 @@
 import React from 'react';
-import { Flex, Image } from '@chakra-ui/core';
-import { Heading } from "@chakra-ui/core";
-import {
-  FormControl,
+import { Flex, Heading, FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
-  Input
-} from "@chakra-ui/core";
-import { Box, Button,Text } from '@chakra-ui/core';
+  Input, Box, Button,Text } from '@chakra-ui/core';
 
 import LoggedInNavbar from '../components/LoggedInNavbar';
-import HeroImage from '../images/hero-image.jpg';
-
 
 function MealLog() {
 	return (
@@ -20,7 +13,7 @@ function MealLog() {
 			<LoggedInNavbar></LoggedInNavbar>
 			<br></br>
 			<Heading>Meal Log</Heading>
-			<Heading as="h3" size="l" color ="red">
+			<Heading as="h3" size="l">
    			 ##NEED BACKEND TO LIST MEALS##
   			</Heading>
   			<br></br>
@@ -31,6 +24,7 @@ function MealLog() {
 			  <FormLabel htmlFor="quantity">Quantity</FormLabel>
 			  <Input id="quantity" placeholder="Quantity" />
 			</FormControl>
+			<br></br>
 			<Button
 							background="white"
 							variantColor="teal"
