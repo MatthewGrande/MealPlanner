@@ -13,7 +13,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import mealPlanner.controller.configuration.WebFrontendProperties;
-import mealPlanner.model.MealManager;
+
+import mealPlanner.model.MealPlannerApp;
 import mealPlanner.persistence.PersistenceXStream;
 
 @SpringBootApplication
@@ -37,7 +38,7 @@ public class MealPlannerSpringApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public MealManager mealMan() {
+	public MealPlannerApp mealMan() {
 		return PersistenceXStream.initializeModelManager(PersistenceXStream.getFilename());
 
 	}
@@ -59,7 +60,7 @@ public class MealPlannerSpringApplication extends SpringBootServletInitializer {
 			public void addCorsMappings(CorsRegistry registry) {
 				String frontendUrl = "http://" + webFrontendProperties.getIp() + ":" + webFrontendProperties.getPort();
 				// For debug purposes, allow connecting from localhost as well
-				registry.addMapping("/**").allowedOrigins(frontendUrl, "http://mealPlanner.mcgill.ca:8087");
+				registry.addMapping("/**").allowedOrigins(frontendUrl, "http://localhost:8087", "http://127.0.0.1:8087");
 			}
 		};
 

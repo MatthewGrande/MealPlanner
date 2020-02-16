@@ -4,6 +4,8 @@ import { CSSReset, ThemeProvider } from '@chakra-ui/core';
 
 import LandingPage from './routes/LandingPage';
 import LoginRegister from './components/auth/LoginRegister';
+import MealLog from './routes/MealLog';
+import EnterIngredients from './routes/EnterIngredients';
 
 function App() {
 	return (
@@ -17,6 +19,12 @@ function App() {
 					</Route>
 					<Route exact path="/login">
 						<LoginRegister />
+					</Route>
+					<Route exact path="/MealLog">
+						<MealLog></MealLog>
+					</Route>
+					<Route exact path="/EnterIngredients">
+						<EnterIngredients></EnterIngredients>
 					</Route>
 				</Switch>
 			</Router>

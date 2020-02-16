@@ -8,7 +8,8 @@ import java.io.IOException;
 import org.springframework.stereotype.Repository;
 import com.thoughtworks.xstream.XStream;
 
-import mealPlanner.model.MealManager;
+import mealPlanner.model.MealPlannerApp;
+import mealPlanner.model.Recipe;
 import mealPlanner.model.User;
 
 // The first type parameter is the domain type for which we are creating the repository.
@@ -21,17 +22,17 @@ public class PersistenceXStream {
 	// a server is required
 	private static String filename = "data.xml";
 
-	public static MealManager initializeModelManager(String fileName) {
+	public static MealPlannerApp initializeModelManager(String fileName) {
 
-		MealManager mm;
+		MealPlannerApp mp;
 
-		setAlias("localUser", User.class);
-		setAlias("TreePLE", MealManager.class);
-
+		setAlias("User", User.class);
+		setAlias("MealPlanner", MealPlannerApp.class);
+		setAlias("Recipe", Recipe.class);
 		// load model if exists, create otherwise
 		File file = new File(fileName);
 		if (file.exists()) {
-			mm = (MealManager) loadFromXMLwithXStream();
+			mp = (MealPlannerApp) loadFromXMLwithXStream();
 		} else {
 			try {
 				file.createNewFile();
@@ -39,10 +40,10 @@ public class PersistenceXStream {
 				e.printStackTrace();
 				System.exit(1);
 			}
-			mm = new MealManager();
-			saveToXMLwithXStream(mm);
+			mp = new MealPlannerApp();
+			saveToXMLwithXStream(mp);
 		}
-		return mm;
+		return mp;
 	}
 
 	public static boolean saveToXMLwithXStream(Object obj) {

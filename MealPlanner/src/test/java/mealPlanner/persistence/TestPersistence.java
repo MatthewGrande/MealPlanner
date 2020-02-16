@@ -10,36 +10,36 @@ import mealPlanner.model.*;
 
 public class TestPersistence {
 
-	private MealManager mm;
+	private MealPlannerApp mp;
 
 	@Before
 	public void setUp() throws Exception {
-		mm = new MealManager();
+		mp = new MealPlannerApp();
 
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		// mm.delete();
+		 mp.delete();
 	}
 
 	@Test
 	public void test() {
 		// initialize model file
 		
-		PersistenceXStream.initializeModelManager("output" + File.separator + "data.xml");
+		PersistenceXStream.initializeModelManager( "data.xml");
 		// save model that is loaded during test setup
-		if (!PersistenceXStream.saveToXMLwithXStream(mm)) {
+		if (!PersistenceXStream.saveToXMLwithXStream(mp)) {
 			fail("Could not save file.");
 		}
 		
 		// clear the model in memory
-		// mm.delete();
-		// assertEquals(0, mm.getTrees().size());
+		 mp.delete();
+		 
 
 		// load model
-		mm = (MealManager) PersistenceXStream.loadFromXMLwithXStream();
-		if (mm == null) {
+		mp = (MealPlannerApp) PersistenceXStream.loadFromXMLwithXStream();
+		if (mp == null) {
 			fail("Could not load file.");
 		}
 
