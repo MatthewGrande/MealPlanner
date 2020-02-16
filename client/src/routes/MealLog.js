@@ -30,6 +30,7 @@ function MealLog() {
 							variantColor="teal"
 							variant="outline"
 							size="md"
+							width = "300px"
 						>
 							Add a Meal
 						</Button>
