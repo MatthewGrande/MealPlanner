@@ -5,7 +5,7 @@ Feature:  As a user of the meal planning application, I want to be able to delet
 		When User Choses delete account
 		And  Enters correct password 
 		And  Enters 'yes' for confirmation
-		Then the user's account will be deleetd
+		Then the account attached to the user will be deleted
 
 	Scenario: User choses no when I asked to confirm that he would like to cancel his account. The user is taken back to the main menu. 
 		Given User is logged in
