@@ -3,6 +3,8 @@ package mealPlanner.service;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import mealPlanner.service.InvalidInputException;
 import mealPlanner.model.Day;
 import mealPlanner.model.Ingredient;
@@ -12,7 +14,7 @@ import mealPlanner.model.User;
 import mealPlanner.persistence.PersistenceXStream;
 
 //Add all methods for the app here
-
+@Service
 public class MealPlannerService {
 	private MealPlannerApp mp;
 	public MealPlannerService(MealPlannerApp mp) {
