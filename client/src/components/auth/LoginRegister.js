@@ -1,4 +1,5 @@
 import React, { useReducer, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Flex, Input, Box } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
@@ -25,6 +26,8 @@ const ImageWrapper = styled(Box)`
 `;
 
 function LoginRegister() {
+	const location = useLocation();
+	const initialIsLogin = location.state ? location.state.isLogin : false;
 	const [
 		{ name, email, password, secondPassword, errorMessage, isLogin },
 		dispatch,
@@ -32,7 +35,7 @@ function LoginRegister() {
 		loginRegisterReducer,
 		createInitialState({
 			initialEmail: '',
-			initialIsLogin: false,
+			initialIsLogin,
 		})
 	);
 

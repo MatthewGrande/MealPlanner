@@ -17,7 +17,7 @@ function App() {
 					<Route exact path="/">
 						<LandingPage />
 					</Route>
-					<Route exact path="/login">
+					<Route exact path="/auth">
 						<LoginRegister />
 					</Route>
 					<Route exact path="/MealLog">

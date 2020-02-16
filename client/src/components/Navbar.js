@@ -21,7 +21,14 @@ function Navbar() {
 			</Flex>
 			<Flex align="center">
 				<Box mr="1rem">
-					<Link to="/register">
+					<Link
+						to={{
+							pathname: '/auth',
+							state: {
+								isLogin: false,
+							},
+						}}
+					>
 						<Button
 							background="white"
 							variantColor="teal"
@@ -32,7 +39,14 @@ function Navbar() {
 						</Button>
 					</Link>
 				</Box>
-				<Link to="/login">
+				<Link
+					to={{
+						pathname: '/auth',
+						state: {
+							isLogin: true,
+						},
+					}}
+				>
 					<Button
 						background="white"
 						variantColor="teal"
