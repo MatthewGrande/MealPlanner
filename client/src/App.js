@@ -15,7 +15,7 @@ function App() {
 					<Route exact path="/">
 						<LandingPage />
 					</Route>
-					<Route exact path="/auth">
+					<Route exact path="/login">
 						<LoginRegister />
 					</Route>
 				</Switch>

@@ -1,5 +1,5 @@
 import React, { useReducer, useMemo } from 'react';
-import { Flex, Input } from '@chakra-ui/core';
+import { Flex, Input, Box } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
 import loginRegisterReducer, {
@@ -8,13 +8,20 @@ import loginRegisterReducer, {
 	setErrorMessage,
 	changeIsLogin,
 } from './reducer';
-import { Title, Subheader, Text } from '../shared/TextComponents';
+import { Title, Text } from '../shared/TextComponents';
+import { RoundedButton } from '../shared/Buttons';
+import Logo from '../../images/Meal_Planner_Logo-no-bg.png';
 
 const FormInput = styled(Input)`
 	border-radius: 10px;
 	margin: 10px 0;
+	width: 350px;
+`;
+
+const ImageWrapper = styled(Box)`
 	width: 400px;
-	color: red;
+	height: 400px;
+	margin: -40px 0;
 `;
 
 function LoginRegister() {
@@ -55,10 +62,13 @@ function LoginRegister() {
 			direction="column"
 			align="center"
 			justify="center"
+			background="teal"
 		>
-			<Title>{`${isLogin ? 'Log in' : 'Create an Account'}`}</Title>
-			<Text style={{ marginTop: '-10px' }}>
-				{!isLogin && `You're just a step away from fantasy domination`}
+			<ImageWrapper>
+				<img src={Logo} />
+			</ImageWrapper>
+			<Text color="white" fontSize="xl" mb="2">
+				{!isLogin && `You're just a step away from crushing your diet goals`}
 				{isLogin && `Welcome back!`}
 			</Text>
 			{errorMessage && <Title>{errorMessage}</Title>}
@@ -94,11 +104,22 @@ function LoginRegister() {
 					/>
 				)}
 			</Flex>
+			<Flex align="center">
+				<RoundedButton
+					mt="2"
+					mb="2"
+					bg="white"
+					width="200"
+					disabled={!formValid()}
+				>
+					{submitButtonString}
+				</RoundedButton>
+			</Flex>
 			<Flex
 				style={{ cursor: 'pointer' }}
 				onClick={() => dispatch(changeIsLogin())}
 			>
-				<Text style={{ opacity: '0.5' }}>
+				<Text color="white">
 					{`Click here to ${isLogin ? 'register' : 'login'}`}
 				</Text>
 			</Flex>

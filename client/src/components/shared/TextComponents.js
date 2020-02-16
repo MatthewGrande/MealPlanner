@@ -2,17 +2,17 @@ import React from 'react';
 import { Heading, Text as ChakraText } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
-export function Title({ children, className, style }) {
+export function Title({ children, className, style, ...otherProps }) {
 	return (
-		<Heading className={className} style={style}>
+		<Heading className={className} style={style} {...otherProps}>
 			{children}
 		</Heading>
 	);
 }
 
-export function Text({ className, style, children }) {
+export function Text({ className, style, children, ...otherProps }) {
 	return (
-		<ChakraText className={className} style={style}>
+		<ChakraText className={className} style={style} {...otherProps}>
 			{children}
 		</ChakraText>
 	);
@@ -26,9 +26,9 @@ const StyledSubheader = styled(Text)`
 	font-weight: bold;
 `;
 
-export function Subheader({ children, className, style }) {
+export function Subheader({ children, className, style, ...otherProps }) {
 	return (
-		<StyledSubheader className={className} style={style}>
+		<StyledSubheader className={className} style={style} {...otherProps}>
 			{children}
 		</StyledSubheader>
 	);
