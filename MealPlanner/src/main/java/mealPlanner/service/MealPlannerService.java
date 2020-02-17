@@ -19,9 +19,11 @@ import mealPlanner.persistence.PersistenceXStream;
 @Service
 public class MealPlannerService {
 	private MealPlannerApp mp;
+	private User loggedInUser;
 
 	public MealPlannerService(MealPlannerApp mp) {
 		this.mp = mp;
+		this.loggedInUser = null;
 	}
 
 	public User createUser(String username, String password, int calorieGoal) throws InvalidInputException {
@@ -78,11 +80,14 @@ public class MealPlannerService {
 		User u = getUser(userName);
 		if (u != null) {
 			if (u.getPassword().equals(password)) {
+				this.loggedInUser = u;
 				return true;
 			} else {
+				this.loggedInUser = null;
 				throw new InvalidInputException("Incorrect password.");
 			}
 		} else {
+			this.loggedInUser = null;
 			throw new InvalidInputException("Cannot find account for this username.");
 		}
 	}
@@ -124,7 +129,10 @@ public class MealPlannerService {
 
 		 PersistenceXStream.saveToXMLwithXStream(mp);
 		return owned_i;
-
+	}
+	
+	public User getLoggedInUser() {
+		return this.loggedInUser;
 	}
 
 }
