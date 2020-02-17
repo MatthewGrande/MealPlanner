@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import mealPlanner.service.InvalidInputException;
 import mealPlanner.model.Day;
 import mealPlanner.model.Ingredient;
+import mealPlanner.model.Meal;
 import mealPlanner.model.MealPlannerApp;
 import mealPlanner.model.OwnedIngredient;
+import mealPlanner.model.Recipe;
 import mealPlanner.model.User;
 import mealPlanner.persistence.PersistenceXStream;
 
@@ -59,6 +61,14 @@ public class MealPlannerService {
 			}
 		}
 		return null;
+	}
+	
+	public Meal logMeal(String username, int recipe_index, int amount) {
+		User u = getUser(username);
+		Day day = u.getCurrentDay();
+		Recipe recipe = mp.getRecipe(recipe_index);
+		Meal m = new Meal(recipe, amount, day);
+		return m;
 	}
 
 	public Boolean isValidLogin(String userName, String password) throws InvalidInputException {
