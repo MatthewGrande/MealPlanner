@@ -1,5 +1,5 @@
-import React, { useReducer, useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useReducer, useState, useMemo } from 'react';
+import { Redirect, useLocation } from 'react-router-dom';
 import { Flex, Input, Box } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
@@ -12,6 +12,7 @@ import loginRegisterReducer, {
 import { Title, Text } from '../shared/TextComponents';
 import { RoundedButton } from '../shared/Buttons';
 import Logo from '../../images/Meal_Planner_Logo-no-bg.png';
+import { register } from '../../api';
 
 const FormInput = styled(Input)`
 	border-radius: 10px;
@@ -27,6 +28,7 @@ const ImageWrapper = styled(Box)`
 
 function LoginRegister() {
 	const location = useLocation();
+	const [redirect, setRedirect] = useState(false);
 	const initialIsLogin = location.state ? location.state.isLogin : false;
 	const [
 		{ name, email, password, secondPassword, errorMessage, isLogin },
@@ -55,9 +57,32 @@ function LoginRegister() {
 		);
 	}
 
+	async function handleSubmit(event) {
+		event.preventDefault();
+
+		if (!formValid()) {
+			return;
+		}
+
+		if (!isLogin) {
+			// Defaulting calorie goal to 2000
+			const response = await register(email, password, 2000);
+			if (response.ok) {
+				const user = await response.json();
+				setRedirect(true);
+			}
+		} else {
+			// TODO: handle login here
+		}
+	}
+
 	const submitButtonString = useMemo(() => (isLogin ? 'Log in' : 'Register'), [
 		isLogin,
 	]);
+
+	if (redirect) {
+		return <Redirect to="/MealLog"></Redirect>;
+	}
 
 	return (
 		<Flex
@@ -75,49 +100,52 @@ function LoginRegister() {
 				{isLogin && `Welcome back!`}
 			</Text>
 			{errorMessage && <Title>{errorMessage}</Title>}
-			<Flex direction="column">
-				{!isLogin && (
+			<form onSubmit={handleSubmit}>
+				<Flex direction="column">
+					{!isLogin && (
+						<FormInput
+							name="name"
+							placeholder="Full Name"
+							value={name}
+							onChange={handleInputChange}
+						/>
+					)}
 					<FormInput
-						name="name"
-						placeholder="Full Name"
-						value={name}
+						name="email"
+						placeholder="Email"
+						value={email}
 						onChange={handleInputChange}
 					/>
-				)}
-				<FormInput
-					name="email"
-					placeholder="Email"
-					value={email}
-					onChange={handleInputChange}
-				/>
-				<FormInput
-					name="password"
-					placeholder="Password"
-					value={password}
-					type="password"
-					onChange={handleInputChange}
-				/>
-				{!isLogin && (
 					<FormInput
-						name="secondPassword"
-						placeholder="Re-enter password"
-						value={secondPassword}
+						name="password"
+						placeholder="Password"
+						value={password}
 						type="password"
 						onChange={handleInputChange}
 					/>
-				)}
-			</Flex>
-			<Flex align="center">
-				<RoundedButton
-					mt="2"
-					mb="2"
-					bg="white"
-					width="200"
-					disabled={!formValid()}
-				>
-					{submitButtonString}
-				</RoundedButton>
-			</Flex>
+					{!isLogin && (
+						<FormInput
+							name="secondPassword"
+							placeholder="Re-enter password"
+							value={secondPassword}
+							type="password"
+							onChange={handleInputChange}
+						/>
+					)}
+				</Flex>
+				<Flex align="center">
+					<RoundedButton
+						mt="2"
+						mb="2"
+						bg="white"
+						width="200"
+						disabled={!formValid()}
+						type="submit"
+					>
+						{submitButtonString}
+					</RoundedButton>
+				</Flex>
+			</form>
 			<Flex
 				style={{ cursor: 'pointer' }}
 				onClick={() => dispatch(changeIsLogin())}
