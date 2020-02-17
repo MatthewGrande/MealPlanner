@@ -1,4 +1,44 @@
 <MealPlanner id="1">
-  <users id="2"/>
-  <recipes id="3"/>
+  <users id="2">
+    <User id="3">
+      <username>Tudor</username>
+      <password>abc123</password>
+      <goalCalorie>9000</goalCalorie>
+      <dietType id="4"/>
+      <pastDays id="5"/>
+      <currentDay id="6">
+        <date id="7">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="8"/>
+      </currentDay>
+      <ownedIngredients id="9"/>
+    </User>
+    <User id="10">
+      <username>Jules</username>
+      <password>ciaoG</password>
+      <goalCalorie>9001</goalCalorie>
+      <dietType id="11"/>
+      <pastDays id="12"/>
+      <currentDay id="13">
+        <date id="14">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="15"/>
+      </currentDay>
+      <ownedIngredients id="16"/>
+    </User>
+    <User id="17">
+      <username>Matt</username>
+      <password>iamgod</password>
+      <goalCalorie>42069</goalCalorie>
+      <dietType id="18"/>
+      <pastDays id="19"/>
+      <currentDay id="20">
+        <date id="21">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="22"/>
+      </currentDay>
+      <ownedIngredients id="23"/>
+    </User>
+  </users>
+  <recipes id="24"/>
 </MealPlanner>

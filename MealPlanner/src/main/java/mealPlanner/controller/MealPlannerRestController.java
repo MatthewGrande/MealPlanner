@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mealPlanner.dto.MealDto;
@@ -24,18 +25,18 @@ public class MealPlannerRestController {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	@PostMapping(value = { "/newUser/{username}/{password}/{calorieGoal}" })
+	@PostMapping(value = { "/newUser/{username}/","/newUser/{username}" })
 
-	public UserDto createUser(@PathVariable("username") String username, @PathVariable("password") String password,
-			@PathVariable("calorieGoal") int calorieGoal) throws InvalidInputException {
+	public UserDto createUser(@PathVariable("username") String username, @RequestParam("password") String password,
+			@RequestParam("calorieGoal") int calorieGoal) throws InvalidInputException {
 
 		User u = service.createUser(username, password, calorieGoal);
 		return convertToDto(u);
 	}
 
-	@PostMapping(value = { "/deleteUser/{username}/{password}" })
+	@PostMapping(value = { "/deleteUser/{username}/", "/deleteUser/{username}" })
 
-	public UserDto deleteUser(@PathVariable("username") String username, @PathVariable("password") String password)
+	public UserDto deleteUser(@PathVariable("username") String username, @RequestParam("password") String password)
 			throws InvalidInputException {
 
 		User u = service.deleteUser(username, password);
@@ -48,8 +49,8 @@ public class MealPlannerRestController {
 		return modelMapper.map(u, UserDto.class);
 	}
 
-	@PostMapping(value = { "/Login/{userName}/{password}" })
-	public void Login(@PathVariable("userName") String userName, @PathVariable("password") String password) {
+	@PostMapping(value = { "/Login/{userName}/", "/Login/{userName}" })
+	public void Login(@PathVariable("userName") String userName, @RequestParam("password") String password) {
 		Boolean answer;
 		try {
 			answer = service.isValidLogin(userName, password);
@@ -60,12 +61,12 @@ public class MealPlannerRestController {
 
 	}
 
-	@PostMapping(value = { "enterOwnedIngredients/{userName}/{ingredientName}/{amount}" })
+	@PostMapping(value = { "enterOwnedIngredients/{userName}/", "enterOwnedIngredients/{userName}" })
 
 	public OwnedIngredientDto enterOwnIngredient(
 
-			@PathVariable("userName") String username, @PathVariable("ingredientName") String ingredientName,
-			@PathVariable("amount") int amount) throws InvalidInputException {
+			@PathVariable("userName") String username, @RequestParam("ingredientName") String ingredientName,
+			@RequestParam("amount") int amount) throws InvalidInputException {
 
 		OwnedIngredient own_i = service.enterOwnIngredient(username, ingredientName, amount);
 
@@ -77,13 +78,13 @@ public class MealPlannerRestController {
 		return modelMapper.map(i, OwnedIngredientDto.class);
 	}
 	
-	@PostMapping(value = { "logMeal/{username}/{recipeIndex}/{amount}" })
+	@PostMapping(value = { "logMeal/{username}/", "logMeal/{username}" })
 
 	public MealDto logMeal(
 
 			@PathVariable("username") String username, 
-			@PathVariable("recipe") int recipeIndex,
-			@PathVariable("amount") int amount) throws InvalidInputException {
+			@RequestParam("recipe") int recipeIndex,
+			@RequestParam("amount") int amount) throws InvalidInputException {
 
 		Meal m = service.logMeal(username, recipeIndex, amount);
 		
