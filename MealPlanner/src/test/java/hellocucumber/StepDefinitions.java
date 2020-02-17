@@ -67,7 +67,7 @@ public class StepDefinitions {
     }
     
     //For "Create Account":
-	@Given("the initial List of users in the MealPLannerService is:")
+	@Given("the initial List of users in the MealPlannerService is:")
 	public void the_initial_List_of_users_in_the_MealPLannerService_is(DataTable dataTable) {
 		setup();
 		this.service = new MealPlannerService(mp);
@@ -100,6 +100,35 @@ public class StepDefinitions {
 			assertEquals(y.getPassword(), x.get("<password>"));
 		}
 		clean();
+	}
+	
+	// Logged in 
+
+	@When("a user inputs their <username> and <password> to login:")
+	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) {
+		for (Map<String, String> x: dataTable.asMaps()) {
+			try {
+				this.service.isValidLogin(x.get("<username>"), x.get("<password>"));
+			}
+			catch (InvalidInputException e) {
+			}
+		}
+	}
+
+	@Then("the user should be logged in as {string}")
+	public void the_user_should_be_logged_in_as(String string) {
+		User loggedIn = this.service.getLoggedInUser();
+		if (loggedIn != null) {
+			assertEquals(string, loggedIn.getUsername());
+		}
+		clean();
+	}
+
+	@Then("the user should not be logged in")
+	public void the_user_should_not_be_logged_in() {
+		User loggedIn = this.service.getLoggedInUser();
+		assertEquals(loggedIn, null);
+	    clean();
 	}
    
 }

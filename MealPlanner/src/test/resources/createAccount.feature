@@ -5,7 +5,7 @@ I would like to create an Account
 So that I can log my daily meals
 
   Scenario: User Julianna wants to create a new account (Normal Flow)
-    Given the initial List of users in the MealPLannerService is:
+    Given the initial List of users in the MealPlannerService is:
       | <user>   | <username> | <password> | <email>      | 
       | TudorG   | tudor_T    | aa001      | tg@gmail.com | 
       | MatthewG | MG002      | matt_M     | mg@gmail.com | 
@@ -22,7 +22,7 @@ So that I can log my daily meals
   
   Scenario: User Julianna wants to create a new account but username already exists in the system (Error Flow)
   
-    Given the initial List of users in the MealPLannerService is:
+    Given the initial List of users in the MealPlannerService is:
       | <user>   | <username> | <password> | <email>      | 
       | TudorG   | tudor_T    | aa001      | tg@gmail.com | 
       | MatthewG | MG002      | matt_M     | mg@gmail.com | 
