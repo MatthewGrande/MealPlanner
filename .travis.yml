@@ -1,5 +1,5 @@
 language: java
 script:
-- cd hellocucumber
-- mvn clean install
-- mvn test
+- cd MealPlanner
+- sudo chmod +x gradlew
+- sudo ./gradlew build
