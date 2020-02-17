@@ -157,6 +157,17 @@ public class User
     return aOwnedIngredient;
   }
 
+  public OwnedIngredient getOwnedIngredient(String ingredient)
+  {
+    List<OwnedIngredient> aOwnedIngredient = this.getOwnedIngredients();
+    for (OwnedIngredient o: aOwnedIngredient) {
+    	if (o.getIngredient().getName().equals(ingredient)) {
+    		return o;
+    	}
+    }
+    return null;
+  } 
+  
   public List<OwnedIngredient> getOwnedIngredients()
   {
     List<OwnedIngredient> newOwnedIngredients = Collections.unmodifiableList(ownedIngredients);
@@ -319,7 +330,9 @@ public class User
   public boolean addOwnedIngredient(OwnedIngredient aOwnedIngredient)
   {
     boolean wasAdded = false;
-    if (ownedIngredients.contains(aOwnedIngredient)) { return false; }
+    if (ownedIngredients.contains(aOwnedIngredient)) {
+    	return false;
+    	}
     User existingUser = aOwnedIngredient.getUser();
     boolean isNewUser = existingUser != null && !this.equals(existingUser);
     if (isNewUser)

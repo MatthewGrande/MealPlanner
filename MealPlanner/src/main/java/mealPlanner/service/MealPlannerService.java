@@ -122,10 +122,18 @@ public class MealPlannerService {
 
 		// Create ingredient if it doesnt exist and add it to the list
 		Ingredient i = new Ingredient(ingredientName);
-		OwnedIngredient owned_i = new OwnedIngredient(amount, i, user);
+		OwnedIngredient owned_i = user.getOwnedIngredient(ingredientName);
+		
+		if (owned_i == null){
+			owned_i = new OwnedIngredient(amount, i, user);
 
-		// Add Ingredient
-		user.addOwnedIngredient(owned_i);
+			// Add Ingredient
+			user.addOwnedIngredient(owned_i);
+		}
+		else {
+			owned_i.setAmount(owned_i.getAmount() + amount);
+		}
+
 
 		 PersistenceXStream.saveToXMLwithXStream(mp);
 		return owned_i;

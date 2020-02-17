@@ -5,7 +5,10 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import mealPlanner.model.Day;
+import mealPlanner.model.Ingredient;
 import mealPlanner.model.MealPlannerApp;
+import mealPlanner.model.OwnedIngredient;
 import mealPlanner.model.User;
 import mealPlanner.persistence.PersistenceXStream;
 import mealPlanner.service.InvalidInputException;
@@ -13,6 +16,7 @@ import mealPlanner.service.MealPlannerService;
 import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +48,7 @@ public class StepDefinitions {
 		if (mp == null) {
 			fail("Could not load file.");
 		}
+		this.service = new MealPlannerService(mp);
     }
 
     private void clean() {
@@ -70,15 +75,10 @@ public class StepDefinitions {
 	@Given("the initial List of users in the MealPlannerService is:")
 	public void the_initial_List_of_users_in_the_MealPLannerService_is(DataTable dataTable) {
 		setup();
-		this.service = new MealPlannerService(mp);
 		for (Map<String, String> x: dataTable.asMaps()) {
-			try {
-				mp.getUsers();
-				service.createUser(x.get("<username>"), x.get("<password>"), 0);
-			}
-			catch (InvalidInputException e) {
-				throw new PendingException();
-			}
+			Day today = new Day(new Date(0, 0, 0), 0);
+			User u = new User(x.get("<username>"), x.get("<password>"), 0,  today);
+			mp.addUser(u);
 		}
 	}
 	
@@ -103,7 +103,6 @@ public class StepDefinitions {
 	}
 	
 	// Logged in 
-
 	@When("a user inputs their <username> and <password> to login:")
 	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) {
 		for (Map<String, String> x: dataTable.asMaps()) {
@@ -129,6 +128,45 @@ public class StepDefinitions {
 		User loggedIn = this.service.getLoggedInUser();
 		assertEquals(loggedIn, null);
 	    clean();
+	}
+	
+	//Enter Owned Ingredients gherkins
+	@Given("the User {string} owns the following <Ingredients>:")
+	public void the_User_owns_the_following_Ingredients(String string, DataTable dataTable) {
+		setup();
+		
+		User u = null;
+		try {
+			u = this.service.createUser(string, "pass", 0);
+		}
+		catch (InvalidInputException e) {
+		}
+		
+		for (Map<String, String> x: dataTable.asMaps()) {
+			Ingredient i = new Ingredient(x.get("<ingredientName>"));
+			OwnedIngredient owned_i = new OwnedIngredient(Integer.parseInt(x.get("<quantity>")), i, u);
+			u.addOwnedIngredient(owned_i);
+		}
+	}
+
+	@When("{string} is on the add own ingredient menu and add my <ingredientName> and <Amount>:")
+	public void is_on_the_add_own_ingredient_menu_and_add_my_ingredientName_and_Amount(String string, DataTable dataTable) {
+		for (Map<String, String> x: dataTable.asMaps()) {
+			try {
+				service.enterOwnIngredient(string, x.get("<ingredientName>"), Integer.parseInt(x.get("<quantity>")));
+			} catch (NumberFormatException e) {
+			} catch (InvalidInputException e) {
+			}
+		}
+	}
+
+	@Then("the User {string} now owns the following <Ingredients>:")
+	public void the_User_now_owns_the_following_Ingredients(String string, DataTable dataTable) {
+		for (Map<String, String> x: dataTable.asMaps()) {
+			User y = service.getUser(x.get("<username>"));
+			assertEquals(y.getOwnedIngredient(x.get("<ingredientName>")).getAmount(), Integer.parseInt(x.get("<quantity>")));
+		}
+		clean();
 	}
    
 }

@@ -109,5 +109,12 @@ public class TestMealPlannerService {
 				assertEquals(oi.getAmount(), numIngredients);
 			}
 		}
+
+		service.enterOwnIngredient(username, ingType, 2 * numIngredients);
+		for (OwnedIngredient oi: service.getUser(username).getOwnedIngredients()) {
+			if (oi.getIngredient().getName().equals("banana")) {
+				assertEquals(oi.getAmount(), 3*numIngredients);
+			}
+		}
 	}
 }
