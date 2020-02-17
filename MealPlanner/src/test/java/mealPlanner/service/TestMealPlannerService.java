@@ -72,4 +72,22 @@ public class TestMealPlannerService {
 		assertEquals(0, mp.getUsers().size());	
 
 	}
+	
+	@Test
+	public void testEnterOwnedIngredient() throws InvalidInputException{
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int numIngredients = 3;
+		String ingType = "banana";
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+		service.enterOwnIngredient(username, ingType, numIngredients);
+		for (OwnedIngredient oi: service.getUser(username).getOwnedIngredients()) {
+			if (oi.getIngredient().getName().equals("banana")) {
+				assertEquals(oi.getAmount(), numIngredients);
+			}
+		}
+	}
 }
