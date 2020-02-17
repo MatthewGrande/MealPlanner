@@ -74,6 +74,26 @@ public class TestMealPlannerService {
 	}
 	
 	@Test
+	public void testLogin() throws InvalidInputException{
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+		try {
+			service.isValidLogin(username, "abc123");
+		}
+		catch (InvalidInputException e) {
+			assertEquals(service.getLoggedInUser(), null);
+		}
+		service.isValidLogin(username, password);
+		assertEquals(service.getLoggedInUser().getUsername(), username);
+		
+	}
+	
+	@Test
 	public void testEnterOwnedIngredient() throws InvalidInputException{
 		String username = "user1";
 		String password = "password1";
