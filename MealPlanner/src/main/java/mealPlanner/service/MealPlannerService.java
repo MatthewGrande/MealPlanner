@@ -68,6 +68,8 @@ public class MealPlannerService {
 		Day day = u.getCurrentDay();
 		Recipe recipe = mp.getRecipe(recipe_index);
 		Meal m = new Meal(recipe, amount, day);
+		PersistenceXStream.saveToXMLwithXStream(mp);
+
 		return m;
 	}
 
@@ -98,9 +100,8 @@ public class MealPlannerService {
 			throws InvalidInputException {
 
 		int index = 0;
-
 		// check ingredientName
-		if (ingredientName.contentEquals(null) || ingredientName.contentEquals("")) {
+		if (ingredientName.equals(null) || ingredientName.equals("")) {
 			throw new InvalidInputException("Please Enter Valid Ingredient Name");
 		}
 
@@ -121,7 +122,7 @@ public class MealPlannerService {
 		// Add Ingredient
 		user.addOwnedIngredient(owned_i);
 
-		// PersistenceXStream.saveToXMLwithXStream(mp);
+		 PersistenceXStream.saveToXMLwithXStream(mp);
 		return owned_i;
 
 	}

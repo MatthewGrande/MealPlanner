@@ -64,7 +64,7 @@ public class MealPlannerRestController {
 	@PostMapping(value = { "enterOwnedIngredients/{userName}/", "enterOwnedIngredients/{userName}" })
 
 	public OwnedIngredientDto enterOwnIngredient(
-
+			
 			@PathVariable("userName") String username, @RequestParam("ingredientName") String ingredientName,
 			@RequestParam("amount") int amount) throws InvalidInputException {
 
