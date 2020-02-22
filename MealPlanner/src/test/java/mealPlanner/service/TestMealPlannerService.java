@@ -74,6 +74,44 @@ public class TestMealPlannerService {
 	}
 	
 	@Test
+	public void testDeleteNonUser() throws InvalidInputException{
+		String username = "user1";
+		String wrongUsername = "user2";
+		String password = "password1";
+		int calorieGoal = 2000;
+		
+		MealPlannerService service = new MealPlannerService(mp);
+		service.createUser(username, password, calorieGoal);
+		assertEquals(1, mp.getUsers().size());	
+		try {
+			service.deleteUser(wrongUsername, password);
+		}
+		catch(InvalidInputException e) {
+			assertEquals(e.getMessage(), "Cannot find account for this username.");
+		}
+	}
+	
+	@Test
+	public void testDeleteUserWrongPassword() throws InvalidInputException{
+		String username = "user1";
+		String password = "password1";
+		String wrongPassword = "password2";
+		int calorieGoal = 2000;
+		
+		MealPlannerService service = new MealPlannerService(mp);
+		
+		service.createUser(username, password, calorieGoal);
+		assertEquals(1, mp.getUsers().size());	
+		
+		try {
+			service.deleteUser(username, wrongPassword);
+		}
+		catch(InvalidInputException e) {
+			assertEquals(e.getMessage(), "Incorrect password.");
+		}
+	}
+	
+	@Test
 	public void testLogin() throws InvalidInputException{
 		String username = "user1";
 		String password = "password1";
