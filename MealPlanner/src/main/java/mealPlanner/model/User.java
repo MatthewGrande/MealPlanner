@@ -24,6 +24,7 @@ public class User
   private List<Day> pastDays;
   private Day currentDay;
   private List<OwnedIngredient> ownedIngredients;
+  private List<Recipe> savedRecipes;
 
   //------------------------
   // CONSTRUCTOR
@@ -113,6 +114,35 @@ public class User
   public int indexOfDietType(DietType aDietType)
   {
     int index = dietType.indexOf(aDietType);
+    return index;
+  }
+  
+  public Recipe getSavedRecipe(int index)
+  {
+    Recipe aRecipe = savedRecipes.get(index);
+    return aRecipe;
+  }
+
+  public List<Recipe> getSavedRecipes()
+  {
+    List<Recipe> newSavedRecipes = Collections.unmodifiableList(savedRecipes);
+    return newSavedRecipes;
+  }
+  public int numberOfSavedRecipes()
+  {
+    int number = savedRecipes.size();
+    return number;
+  }
+
+  public boolean hasSavedRecipes()
+  {
+    boolean has = savedRecipes.size() > 0;
+    return has;
+  }
+
+  public int indexOfSavedRecipe(Recipe aSavedRecipe)
+  {
+    int index = savedRecipes.indexOf(aSavedRecipe);
     return index;
   }
   /* Code from template association_GetMany */
@@ -247,6 +277,25 @@ public class User
       wasAdded = addDietTypeAt(aDietType, index);
     }
     return wasAdded;
+  }
+  public boolean addSavedRecipe(Recipe aSavedRecipe)
+  {
+    boolean wasAdded = false;
+    if (savedRecipes.contains(aSavedRecipe)) { return false; }
+    savedRecipes.add(aSavedRecipe);
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeSavedRecipe(Recipe aSavedRecipe)
+  {
+    boolean wasRemoved = false;
+    if (savedRecipes.contains(aSavedRecipe))
+    {
+      savedRecipes.remove(aSavedRecipe);
+      wasRemoved = true;
+    }
+    return wasRemoved;
   }
   /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfPastDays()
