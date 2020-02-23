@@ -168,7 +168,17 @@ public class StepDefinitions {
 		}
 		clean();
 	}
-   
+	
+
+	@When("Julianna inputs her <username> {string} and <password> {string} to delete an account")
+	public void julianna_inputs_her_username_and_password_to_delete_an_account(String string, String string2) {
+
+		try {
+			service.deleteUser(string, string2);
+		} catch (InvalidInputException e) {
+		}
+	}
+
 }
 
 class IsItFriday {
