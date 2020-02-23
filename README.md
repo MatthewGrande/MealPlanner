@@ -1,1 +1,1 @@
-# MealPlanner
+# MealPlanner Project
