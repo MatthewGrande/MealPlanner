@@ -2,6 +2,9 @@ package mealPlanner.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+
+import java.sql.Date;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -71,6 +74,37 @@ public class TestMealPlannerService {
 		service.deleteUser(username, password);
 		assertEquals(0, mp.getUsers().size());	
 
+	}
+	
+	@Test
+	public void testTrackProgress() throws InvalidInputException{
+		
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		
+		String wrongUsername = "wrong";
+		
+		
+		
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+		service.logMeal(username, 1, 1);
+		
+		assertEquals(mp.getRecipe(1).getCalorieCountPerServing()*1/calorieGoal,service.trackProgress(username));
+		
+		try {
+		
+		assertEquals(mp.getRecipe(1).getCalorieCountPerServing()*1/calorieGoal,service.trackProgress(wrongUsername));
+		
+		}
+		catch(InvalidInputException e) {
+			assertEquals(e.getMessage(),("User not found."));
+		}
+		
+		
+		
 	}
 	
 	@Test
