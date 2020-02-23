@@ -42,6 +42,7 @@ public class User
       throw new RuntimeException("Unable to create User due to aCurrentDay. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
     ownedIngredients = new ArrayList<OwnedIngredient>();
+    savedRecipes = new ArrayList<Recipe>();
   }
 
   //------------------------
@@ -281,6 +282,7 @@ public class User
   public boolean addSavedRecipe(Recipe aSavedRecipe)
   {
     boolean wasAdded = false;
+    
     if (savedRecipes.contains(aSavedRecipe)) { return false; }
     savedRecipes.add(aSavedRecipe);
     wasAdded = true;
