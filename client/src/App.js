@@ -4,6 +4,7 @@ import { CSSReset, ThemeProvider } from '@chakra-ui/core';
 
 import LandingPage from './routes/LandingPage';
 import LoginRegister from './components/auth/LoginRegister';
+import Progress from './routes/Progress';
 import MealLog from './routes/MealLog';
 import EnterIngredients from './routes/EnterIngredients';
 import AccountSettings from './routes/AccountSettings';
@@ -23,6 +24,9 @@ function App() {
 					</Route>
 					<Route exact path="/auth">
 						<LoginRegister />
+					</Route>
+					<Route exact path="/progress">
+						<Progress></Progress>
 					</Route>
 					<Route exact path="/MealLog">
 						<MealLog></MealLog>
