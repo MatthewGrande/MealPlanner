@@ -127,6 +127,32 @@ public class MealPlannerService {
 		return u;
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 * @return all saved recipes
+	 * @throws InvalidInputException 
+	 */
+	public List<Recipe> viewSavedRecipes(String username) throws InvalidInputException {
+		User u = getUser(username);
+		
+		if(u == null) {
+			throw new InvalidInputException("User not found.");
+		}
+		
+		List<Recipe> savedRecipes = u.getSavedRecipes();
+		
+		if(savedRecipes == null || savedRecipes.size() == 0) {
+			
+			throw new InvalidInputException("No saved recipes.");
+			
+		}
+		
+		return savedRecipes;
+		
+		
+	}
+	
 	
 	/**
 	 * Method that tracks user's progress
