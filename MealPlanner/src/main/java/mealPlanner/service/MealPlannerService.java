@@ -72,9 +72,9 @@ public class MealPlannerService {
 				+ "Tip it into a colander to drain and allow it to cool "
 				+ "(spread it out on a plate to cool it quicker). "
 				+ "Take big handfuls of it in your fists and squeeze out the excess water. "
-				+ "It’s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----"
+				+ "Itï¿½s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----"
 				+ "Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. "
-				+ "Season with pepper and a tiny bit of salt (there’s so much salt in the salmon). "
+				+ "Season with pepper and a tiny bit of salt (thereï¿½s so much salt in the salmon). "
 				+ "Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish"
 				+ " (about 30cm x 20cm), then arrange the salmon fillets on top."
 				+ "Heat the double cream in a small pan, then pour it all over the salmon and spinach. "
@@ -125,6 +125,40 @@ public class MealPlannerService {
 		mp.addUser(u);
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return u;
+	}
+	
+	
+	/**
+	 * Method that tracks user's progress
+	 * @param username
+	 * @return (calorie consumed / calorie goal) of the day
+	 * @throws InvalidInputException 
+	 */
+	public int trackProgress(String username) throws InvalidInputException {
+		
+		User user = null;
+		
+		// Check if username is already in database
+		List<User> userList = mp.getUsers();
+		for (User u : userList) {
+			if (u.getUsername().contentEquals(username)) {
+				user=u;
+			}
+		}
+		
+		// Throw Exception if user doesnt exist
+		if (user == null) {
+			throw new InvalidInputException("User not found.");
+		}
+		
+		int calorieGoal = user.getGoalCalorie();
+		
+		// Get current day's calorie count
+		int currentCalorieCount = user.getCurrentDay().getCalorieCount();
+		
+		int progress = currentCalorieCount/calorieGoal;
+
+		return progress;
 	}
 
 	public User deleteUser(String username, String password) throws InvalidInputException {
