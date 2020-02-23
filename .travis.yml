@@ -2,4 +2,4 @@ language: java
 script:
 - cd MealPlanner
 - sudo chmod +x gradlew
-- sudo ./gradlew build
+- sudo ./gradlew build --info
