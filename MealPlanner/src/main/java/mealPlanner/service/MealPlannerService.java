@@ -28,7 +28,7 @@ public class MealPlannerService {
 		this.loggedInUser = null;
 		
 		
-		Recipe pestoKalePasta= new Recipe(500,"Pesto Kale Pasta");
+		Recipe pestoKalePasta= new Recipe("Pesto Kale Pasta", 500);
 		DietType vegeterian= new DietType("Vegeterian");
 		pestoKalePasta.addDietType(vegeterian);
 		Ingredient rapeseedoil= new Ingredient("rapeseed oil");
@@ -55,7 +55,7 @@ public class MealPlannerService {
 				+ "adding a splash of the reserved cooking water to loosen, if needed. Season.");
 		
 		
-		Recipe smokedsalamonGratin= new Recipe(600,"Smoked salmon & spinach gratin");
+		Recipe smokedsalamonGratin= new Recipe("Smoked salmon & spinach gratin",600);
 		Ingredient spinach= new Ingredient("spinach");
 		Ingredient butter= new Ingredient("butter");
 		Ingredient salmon= new Ingredient("salmon fillets");
@@ -81,7 +81,7 @@ public class MealPlannerService {
 				+ "Bake for 35 mins, or until the top is golden and the cream is bubbling.");
 		
 		
-		Recipe tofuSoup= new Recipe(300,"Miso mushroom & tofu noodle soup");
+		Recipe tofuSoup= new Recipe("Miso mushroom & tofu noodle soup", 300);
 		Ingredient mushrooms= new Ingredient("mushrooms");
 		Ingredient tofu= new Ingredient("tofu");
 		Ingredient brownrice= new Ingredient("brown rice");
@@ -208,7 +208,7 @@ public class MealPlannerService {
 		}
 		return null;
 	}
-	
+
 	public Meal logMeal(String username, int recipe_index, int amount) {
 		User u = getUser(username);
 		Day day = u.getCurrentDay();
@@ -219,6 +219,14 @@ public class MealPlannerService {
 		return m;
 	}
 
+	/**
+	 * Validates user credentials
+	 * 
+	 * @param userName
+	 * @param password
+	 * @return true if credentials are valid, otherwise false
+	 * @throws InvalidInputException
+	 */
 	public Boolean isValidLogin(String userName, String password) throws InvalidInputException {
 
 		User u = getUser(userName);
@@ -267,24 +275,116 @@ public class MealPlannerService {
 		// Create ingredient if it doesnt exist and add it to the list
 		Ingredient i = new Ingredient(ingredientName);
 		OwnedIngredient owned_i = user.getOwnedIngredient(ingredientName);
-		
-		if (owned_i == null){
+
+		if (owned_i == null) {
 			owned_i = new OwnedIngredient(amount, i, user);
 
 			// Add Ingredient
 			user.addOwnedIngredient(owned_i);
-		}
-		else {
+		} else {
 			owned_i.setAmount(owned_i.getAmount() + amount);
 		}
 
-
-		 PersistenceXStream.saveToXMLwithXStream(mp);
+		PersistenceXStream.saveToXMLwithXStream(mp);
 		return owned_i;
 	}
-	
+
 	public User getLoggedInUser() {
 		return this.loggedInUser;
+	}
+
+	/**
+	 * Adds recipe to saved recipes list for user
+	 * 
+	 * @param userName
+	 * @param newRecipeName
+	 * @return list of saved recipes
+	 * @throws InvalidInputException
+	 */
+	public Boolean addToSavedRecipes(String userName, String newRecipeName) throws InvalidInputException {
+		User user = getUser(userName);
+		int index = -1;
+		List<Recipe> recipeList = mp.getRecipes();
+
+		if (user == null) {
+			throw new InvalidInputException("Invalid user.");
+		}
+
+		if (newRecipeName.equals(null) || newRecipeName.equals("")) {
+			throw new InvalidInputException("Please Enter Valid Recipe Name");
+		}
+
+		for (int i = 0; i < recipeList.size(); i++) {
+			if (recipeList.get(i).getName().contentEquals(newRecipeName)) {
+				index = i;
+				break;
+			}
+		}
+
+		if (index == -1) {
+			throw new InvalidInputException("Recipe not found.");
+		}
+		
+		Recipe newRecipe = mp.getRecipe(index);
+
+		if (newRecipe != null) {
+			Boolean wasAdded = user.addSavedRecipe(newRecipe);
+			if (wasAdded == false) {
+				throw new InvalidInputException("This recipe is already saved.");
+			}
+		} else {
+			throw new InvalidInputException("Please enter a valid recipe.");
+
+		}
+		PersistenceXStream.saveToXMLwithXStream(mp);
+		return true;
+	}
+
+	/**
+	 * Deletes recipe from saved recipes list for user
+	 * 
+	 * @param userName
+	 * @param savedRecipeName
+	 * @return list of saved recipes
+	 * @throws InvalidInputException
+	 */
+	public Boolean deleteSavedRecipe(String userName, String savedRecipeName) throws InvalidInputException {
+		User user = getUser(userName);
+		int index = -1;
+
+		if (user == null) {
+			throw new InvalidInputException("Invalid user.");
+		}
+
+		List<Recipe> savedRecipeList = user.getSavedRecipes();
+
+		if (savedRecipeName.equals(null) || savedRecipeName.equals("")) {
+			throw new InvalidInputException("Please Enter Valid Saved Recipe Name");
+		}
+
+		for (int i = 0; i < savedRecipeList.size(); i++) {
+			if (savedRecipeList.get(i).getName().contentEquals(savedRecipeName)) {
+				index = i;
+				break;
+			}
+		}
+
+		if (index == -1) {
+			throw new InvalidInputException("Saved Recipe not found.");
+		}
+		
+		Recipe savedRecipe = mp.getRecipe(index);
+
+		if (savedRecipe != null) {
+			Boolean wasRemoved = user.removeSavedRecipe(savedRecipe);
+			if (wasRemoved == false) {
+				throw new InvalidInputException("This recipe was never saved.");
+			}
+		} else {
+			throw new InvalidInputException("Please choose a valid saved recipe.");
+		}
+		PersistenceXStream.saveToXMLwithXStream(mp);
+		return true;
 	}
 
 }

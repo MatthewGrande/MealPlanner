@@ -14,8 +14,8 @@ public class Recipe
   //------------------------
 
   //Recipe Attributes
-	String name;
   private int calorieCountPerServing;
+  private String name;
 
   //Recipe Associations
   private List<DietType> dietType;
@@ -26,13 +26,13 @@ public class Recipe
   // CONSTRUCTOR
   //------------------------
 
-  public Recipe(int aCalorieCountPerServing, String name)
+  public Recipe(String aName, int aCalorieCountPerServing)
   {
+	name = aName;
     calorieCountPerServing = aCalorieCountPerServing;
     dietType = new ArrayList<DietType>();
     ingredients = new ArrayList<Ingredient>();
     steps = "";
-    this.name=name;
   }
   //------------------------
   // INTERFACE
@@ -50,6 +50,19 @@ public class Recipe
     return wasSet;
   }
 
+  public Boolean setName(String aName)
+  {
+	  boolean wasSet = false;
+	    name = aName;
+	    wasSet = true;
+	    return wasSet;
+  }
+  
+  public String getName()
+  {
+    return name;
+  }
+  
   public int getCalorieCountPerServing()
   {
     return calorieCountPerServing;
