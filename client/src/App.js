@@ -8,6 +8,7 @@ import MealLog from './routes/MealLog';
 import EnterIngredients from './routes/EnterIngredients';
 import AccountSettings from './routes/AccountSettings';
 import DietInformation from './routes/DietInformation';
+import MealSuggestions from './routes/MealSuggestions';
 
 function App() {
 	return (
@@ -33,6 +34,9 @@ function App() {
 					</Route>
 					<Route exact path="/DietInformation">
 						<DietInformation></DietInformation>
+					</Route>
+					<Route exact path="/MealSuggestions">
+						<MealSuggestions></MealSuggestions>
 					</Route>
 				</Switch>
 			</Router>
