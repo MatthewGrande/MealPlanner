@@ -108,8 +108,6 @@ public class MealPlannerService {
 		
 		PersistenceXStream.saveToXMLwithXStream(this.mp);
 		
-		
-		
 	}
 
 	public User createUser(String username, String password, int calorieGoal) throws InvalidInputException {

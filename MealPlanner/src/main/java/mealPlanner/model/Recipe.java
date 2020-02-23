@@ -34,7 +34,6 @@ public class Recipe
     steps = "";
     this.name=name;
   }
-
   //------------------------
   // INTERFACE
   //------------------------
