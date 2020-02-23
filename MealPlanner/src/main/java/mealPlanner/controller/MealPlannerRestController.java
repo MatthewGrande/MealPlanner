@@ -1,5 +1,7 @@
 package mealPlanner.controller;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import mealPlanner.dto.MealDto;
 import mealPlanner.dto.OwnedIngredientDto;
 import mealPlanner.dto.UserDto;
+import mealPlanner.model.DietType;
 import mealPlanner.model.Meal;
 import mealPlanner.model.OwnedIngredient;
+import mealPlanner.model.Recipe;
 import mealPlanner.model.User;
 import mealPlanner.service.InvalidInputException;
 import mealPlanner.service.MealPlannerService;
@@ -25,7 +29,7 @@ public class MealPlannerRestController {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	@PostMapping(value = { "/newUser/{username}/","/newUser/{username}" })
+	@PostMapping(value = { "/newUser/{username}/", "/newUser/{username}" })
 
 	public UserDto createUser(@PathVariable("username") String username, @RequestParam("password") String password,
 			@RequestParam("calorieGoal") int calorieGoal) throws InvalidInputException {
@@ -61,10 +65,31 @@ public class MealPlannerRestController {
 
 	}
 
+	@PostMapping(value = { "/addSavedRecipe/{userName}/", "/addSavedRecipe/{userName}" })
+	public void AddSavedRcp(@PathVariable("userName") String userName, @RequestParam("RecipeName") String RecipeName) {
+		Boolean answer;
+		try {
+			answer = service.addToSavedRecipes(userName, RecipeName);
+		} catch (InvalidInputException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@PostMapping(value = { "/deleteSavedRecipe/{userName}/", "/deleteSavedRecipe/{userName}" })
+	public void DeleteSavedRcp(@PathVariable("userName") String userName,
+			@RequestParam("RecipeName") String RecipeName) {
+		Boolean answer;
+		try {
+			answer = service.deleteSavedRecipe(userName, RecipeName);
+		} catch (InvalidInputException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@PostMapping(value = { "enterOwnedIngredients/{userName}/", "enterOwnedIngredients/{userName}" })
 
 	public OwnedIngredientDto enterOwnIngredient(
-			
+
 			@PathVariable("userName") String username, @RequestParam("ingredientName") String ingredientName,
 			@RequestParam("amount") int amount) throws InvalidInputException {
 
@@ -77,19 +102,19 @@ public class MealPlannerRestController {
 
 		return modelMapper.map(i, OwnedIngredientDto.class);
 	}
-	
+
 	@PostMapping(value = { "logMeal/{username}/", "logMeal/{username}" })
 
 	public MealDto logMeal(
 
-			@PathVariable("username") String username, 
-			@RequestParam("recipe") int recipeIndex,
+			@PathVariable("username") String username, @RequestParam("recipe") int recipeIndex,
 			@RequestParam("amount") int amount) throws InvalidInputException {
 
 		Meal m = service.logMeal(username, recipeIndex, amount);
-		
+
 		return convertToDto(m);
 	}
+
 	private MealDto convertToDto(Meal m) {
 
 		return modelMapper.map(m, MealDto.class);

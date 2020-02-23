@@ -1,33 +1,4 @@
 <MealPlanner id="1">
-  <users id="2">
-    <User id="3">
-      <username>tudor_T</username>
-      <password>pass</password>
-      <goalCalorie>0</goalCalorie>
-      <dietType id="4"/>
-      <pastDays id="5"/>
-      <currentDay id="6">
-        <date id="7">1899-12-31</date>
-        <calorieCount>0</calorieCount>
-        <meals id="8"/>
-      </currentDay>
-      <ownedIngredients id="9">
-        <mealPlanner.model.OwnedIngredient id="10">
-          <amount>7</amount>
-          <ingredient id="11">
-            <name>banana</name>
-          </ingredient>
-          <user reference="3"/>
-        </mealPlanner.model.OwnedIngredient>
-        <mealPlanner.model.OwnedIngredient id="12">
-          <amount>500</amount>
-          <ingredient id="13">
-            <name>oatmeal</name>
-          </ingredient>
-          <user reference="3"/>
-        </mealPlanner.model.OwnedIngredient>
-      </ownedIngredients>
-    </User>
-  </users>
-  <recipes id="14"/>
+  <users id="2"/>
+  <recipes id="3"/>
 </MealPlanner>

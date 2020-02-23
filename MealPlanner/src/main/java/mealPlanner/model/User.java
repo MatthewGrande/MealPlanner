@@ -39,9 +39,10 @@ public class User
     pastDays = new ArrayList<Day>();
     if (!setCurrentDay(aCurrentDay))
     {
-      throw new RuntimeException("Unable to create User due to aCurrentDay. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+      throw new RuntimeException("Unable to create User due to aCurrentDay.");
     }
     ownedIngredients = new ArrayList<OwnedIngredient>();
+    savedRecipes = new ArrayList<Recipe>();
   }
 
   //------------------------
