@@ -14,11 +14,14 @@ public class Recipe
   //------------------------
 
   //Recipe Attributes
+	String name;
   private int calorieCountPerServing;
   private String name;
 
   //Recipe Associations
   private List<DietType> dietType;
+  private List<Ingredient> ingredients;
+  String steps;
 
   //------------------------
   // CONSTRUCTOR
@@ -29,11 +32,17 @@ public class Recipe
 	name = aName;
     calorieCountPerServing = aCalorieCountPerServing;
     dietType = new ArrayList<DietType>();
+    ingredients = new ArrayList<Ingredient>();
+    steps = "";
+    this.name=name;
   }
-
   //------------------------
   // INTERFACE
   //------------------------
+  
+  public void setSteps(String inputSteps) {
+	  this.steps=inputSteps;
+  }
 
   public boolean setCalorieCountPerServing(int aCalorieCountPerServing)
   {
@@ -72,6 +81,13 @@ public class Recipe
     List<DietType> newDietType = Collections.unmodifiableList(dietType);
     return newDietType;
   }
+  
+  
+  public List<Ingredient> getIngredients()
+  {
+    List<Ingredient> newIngredients = Collections.unmodifiableList(ingredients);
+    return newIngredients;
+  }
 
   public int numberOfDietType()
   {
@@ -104,7 +120,26 @@ public class Recipe
     wasAdded = true;
     return wasAdded;
   }
+  
+  
+  public boolean addIngredient(Ingredient aIngredient)
+  {
+    boolean wasAdded = false;
+    if (ingredients.contains(aIngredient)) { return false; }
+    ingredients.add(aIngredient);
+    wasAdded = true;
+    return wasAdded;
+  }
+  
 
+  public void setIngredients(List<Ingredient> newIngredients)
+  {
+   this.ingredients=newIngredients;
+  
+  }
+  
+  
+  
   public boolean removeDietType(DietType aDietType)
   {
     boolean wasRemoved = false;

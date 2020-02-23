@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.sql.Date;
 
 import org.junit.After;
 import org.junit.Before;
@@ -79,7 +80,38 @@ public class TestMealPlannerService {
 	}
 
 	@Test
-	public void testDeleteNonUser() throws InvalidInputException {
+	public void testTrackProgress() throws InvalidInputException{
+		
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		
+		String wrongUsername = "wrong";
+		
+		
+		
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+		service.logMeal(username, 1, 1);
+		
+		assertEquals(mp.getRecipe(1).getCalorieCountPerServing()*1/calorieGoal,service.trackProgress(username));
+		
+		try {
+		
+		assertEquals(mp.getRecipe(1).getCalorieCountPerServing()*1/calorieGoal,service.trackProgress(wrongUsername));
+		
+		}
+		catch(InvalidInputException e) {
+			assertEquals(e.getMessage(),("User not found."));
+		}
+		
+		
+		
+	}
+	
+	@Test
+	public void testDeleteNonUser() throws InvalidInputException{
 		String username = "user1";
 		String wrongUsername = "user2";
 		String password = "password1";
