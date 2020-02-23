@@ -23,7 +23,7 @@ So that I can keep track of my daily consumption
           | <Recipe>            | <DietType> | <Ingredients> 																				 |
      		  | pestoKalePasta      | vegetarian |pesto, creamCheese, rapeseedoil, redOnion, kale, pasta |
      		  | tofuSoup            | n/a        |mushrooms, brownrice, noodles, redOnion, rapeseedoil   |
-     		  | smokedsalamonGratin | n/a        |spinach, butter, salmon, cream  
+     		  | smokedsalamonGratin | n/a        |spinach, butter, salmon, cream                         |
     When the user "Julianna" logs a meal she has eaten by adding an individual <Ownedingredient>
     	  	| <Meal>      | <Quantity> | <Day>       |
     			| Banana      | 1          |  today    	 |
@@ -39,7 +39,7 @@ So that I can keep track of my daily consumption
           | <Recipe>            | <DietType> | <Ingredients> 																				 |
      		  | pestoKalePasta      | vegetarian |pesto, creamCheese, rapeseedoil, redOnion, kale, pasta |
      		  | tofuSoup            | n/a        |mushrooms, brownrice, noodles, redOnion, rapeseedoil   |
-     		  | smokedsalamonGratin | n/a        |spinach, butter, salmon, cream  
+     		  | smokedsalamonGratin | n/a        |spinach, butter, salmon, cream                         |
     When the user "Julianna" logs a meal she has eaten by adding an individual <Ownedingredient>
     	  	| <Meal>      | <Quantity> | <Day>       |
     			| Oatmeal     | 500        |  today    	 |
