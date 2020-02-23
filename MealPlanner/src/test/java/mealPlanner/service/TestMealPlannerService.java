@@ -112,7 +112,7 @@ public class TestMealPlannerService {
 		String password = "password1";
 		int calorieGoal = 2000;
 		String wrongUsername = "wrong";
-		Recipe r = new Recipe(800,"Pestont");
+		Recipe r = new Recipe("Pestont", 800);
 		
 		
 		MealPlannerService service = new MealPlannerService(mp);
