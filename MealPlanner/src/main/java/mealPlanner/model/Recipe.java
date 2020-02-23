@@ -14,7 +14,6 @@ public class Recipe
   //------------------------
 
   //Recipe Attributes
-	String name;
   private int calorieCountPerServing;
   private String name;
 
@@ -34,7 +33,6 @@ public class Recipe
     dietType = new ArrayList<DietType>();
     ingredients = new ArrayList<Ingredient>();
     steps = "";
-    this.name=name;
   }
   //------------------------
   // INTERFACE

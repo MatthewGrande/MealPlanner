@@ -28,7 +28,7 @@ public class MealPlannerService {
 		this.loggedInUser = null;
 		
 		
-		Recipe pestoKalePasta= new Recipe(500,"Pesto Kale Pasta");
+		Recipe pestoKalePasta= new Recipe("Pesto Kale Pasta", 500);
 		DietType vegeterian= new DietType("Vegeterian");
 		pestoKalePasta.addDietType(vegeterian);
 		Ingredient rapeseedoil= new Ingredient("rapeseed oil");
@@ -55,7 +55,7 @@ public class MealPlannerService {
 				+ "adding a splash of the reserved cooking water to loosen, if needed. Season.");
 		
 		
-		Recipe smokedsalamonGratin= new Recipe(600,"Smoked salmon & spinach gratin");
+		Recipe smokedsalamonGratin= new Recipe("Smoked salmon & spinach gratin",600);
 		Ingredient spinach= new Ingredient("spinach");
 		Ingredient butter= new Ingredient("butter");
 		Ingredient salmon= new Ingredient("salmon fillets");
@@ -81,7 +81,7 @@ public class MealPlannerService {
 				+ "Bake for 35 mins, or until the top is golden and the cream is bubbling.");
 		
 		
-		Recipe tofuSoup= new Recipe(300,"Miso mushroom & tofu noodle soup");
+		Recipe tofuSoup= new Recipe("Miso mushroom & tofu noodle soup", 300);
 		Ingredient mushrooms= new Ingredient("mushrooms");
 		Ingredient tofu= new Ingredient("tofu");
 		Ingredient brownrice= new Ingredient("brown rice");
