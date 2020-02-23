@@ -10,3 +10,17 @@ export const register = (username, password, calorieGoal) => {
 		},
 	});
 };
+
+export const getProgress = username => {
+	// Hardcoded since backend endpoint doesn't exist yet
+	return new Promise(resolve => resolve(0.42));
+
+	// TODO: update this to the proper endpoint once created
+	return fetch(`/progress/${username}`, {
+		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+	});
+};
