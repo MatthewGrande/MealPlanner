@@ -140,7 +140,15 @@ public class MealPlannerService {
 			throw new InvalidInputException("User not found.");
 		}
 		
-		return u.getSavedRecipes();
+		List<Recipe> savedRecipes = u.getSavedRecipes();
+		
+		if(savedRecipes == null || savedRecipes.size() == 0) {
+			
+			throw new InvalidInputException("No saved recipes.");
+			
+		}
+		
+		return savedRecipes;
 		
 		
 	}
