@@ -1,14 +1,8 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { CSSReset, ThemeProvider } from '@chakra-ui/core';
-import {
-	render,
-	waitForElement,
-	fireEvent,
-	within,
-	cleanup,
-} from '@testing-library/react';
+import { ThemeProvider } from '@chakra-ui/core';
+import { render, cleanup } from '@testing-library/react';
 import LoginRegister from './LoginRegister';
 
 describe('Dashboard Tests', () => {
