@@ -394,5 +394,91 @@ public class TestMealPlannerService {
 		assertEquals(savedRecipes.size(), numSavedRecipes);
 
 	}
+	
+	@Test
+	public void testUserLogsValidMeal() throws InvalidInputException{
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int amount = 1;
+		int recipeNumber = 0;
+		Day today = new Day(new Date(0,0,0), 100);
+
+		MealPlannerService service = new MealPlannerService(mp);
+		User u = service.createUser(username, password, calorieGoal);
+		u.setCurrentDay(today);
+
+		Meal m = service.logMeal(username, recipeNumber, amount);
+		assertEquals(m.getDay(),today);
+		assertEquals(m.getServings(),amount);
+		
+	}
+	
+	@Test
+	public void testUserLogsMealInvalidAmount() throws InvalidInputException{
+		String error = "";
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int amount = -1;
+		int recipeNumber = 0;
+		Day today = new Day(new Date(0,0,0), 100);
+
+		MealPlannerService service = new MealPlannerService(mp);
+		User u = service.createUser(username, password, calorieGoal);
+		u.setCurrentDay(today);
+		try {
+			Meal m = service.logMeal(username, recipeNumber, amount);
+		} catch (InvalidInputException e) {
+			error = e.getMessage();
+		}		
+		assertEquals(error ,"Number of portions be 1 or more.");
+		
+	}
+	
+	@Test
+	public void testUserLogsMealInvalidRecipe() throws InvalidInputException{
+		String error = "";
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int amount = 1;
+		int recipeNumber = -1;
+		Day today = new Day(new Date(0,0,0), 100);
+
+		MealPlannerService service = new MealPlannerService(mp);
+		User u = service.createUser(username, password, calorieGoal);
+		u.setCurrentDay(today);
+		try {
+			Meal m = service.logMeal(username, recipeNumber, amount);
+		} catch (InvalidInputException e) {
+			error = e.getMessage();
+		}		
+		assertEquals(error ,"Recipe Index must be a positive number.");
+		
+	}	
+	
+	@Test
+	public void testUserLogsMealInvalidUser() throws InvalidInputException{
+		String error = "";
+		String username = "user1";
+		String username2 = "user1234";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int amount = 1;
+		int recipeNumber = 0;
+		Day today = new Day(new Date(0,0,0), 100);
+
+		MealPlannerService service = new MealPlannerService(mp);
+		User u = service.createUser(username, password, calorieGoal);
+		u.setCurrentDay(today);
+		try {
+			Meal m = service.logMeal(username2, recipeNumber, amount);
+		} catch (InvalidInputException e) {
+			error = e.getMessage();
+		}		
+		assertEquals(error ,"Username must be valid.");
+		
+	}
 
 }
