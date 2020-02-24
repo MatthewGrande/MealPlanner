@@ -4,4 +4,5 @@ script:
 - sudo chmod +x gradlew
 - sudo ./gradlew build --info
 - cd ./../client
+- yarn 
 - yarn test
