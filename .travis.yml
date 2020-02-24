@@ -3,5 +3,5 @@ script:
 - cd MealPlanner
 - sudo chmod +x gradlew
 - sudo ./gradlew build --info
-- cd ../client
+- cd ./../client
 - yarn test
