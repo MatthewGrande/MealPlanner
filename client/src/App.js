@@ -12,6 +12,7 @@ import DietInformation from './routes/DietInformation';
 import MealSuggestions from './routes/MealSuggestions';
 import ViewSavedRecipes from './routes/ViewSavedRecipes';
 
+
 function App() {
 	return (
 		<ThemeProvider>
