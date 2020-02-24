@@ -209,8 +209,19 @@ public class MealPlannerService {
 		return null;
 	}
 
-	public Meal logMeal(String username, int recipe_index, int amount) {
+	public Meal logMeal(String username, int recipe_index, int amount) throws InvalidInputException {
+		if(recipe_index < 0) {
+			throw new InvalidInputException("Recipe Index must be a positive number.");
+		}
+		if(amount < 1) {
+			throw new InvalidInputException("Number of portions be 1 or more.");
+		}
+		
 		User u = getUser(username);
+		if(u == null) {
+			throw new InvalidInputException("Username must be valid.");
+
+		}
 		Day day = u.getCurrentDay();
 		Recipe recipe = mp.getRecipe(recipe_index);
 		Meal m = new Meal(recipe, amount, day);
