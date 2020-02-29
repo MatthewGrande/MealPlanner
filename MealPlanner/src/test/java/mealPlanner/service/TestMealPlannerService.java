@@ -12,6 +12,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.common.util.concurrent.Service;
+
 import mealPlanner.model.*;
 import mealPlanner.persistence.PersistenceXStream;
 
@@ -478,6 +480,31 @@ public class TestMealPlannerService {
 			error = e.getMessage();
 		}		
 		assertEquals(error ,"Username must be valid.");
+		
+	}
+	
+	@Test
+	public void testRecommendedRecipes() throws InvalidInputException{
+
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+
+		Ingredient salt = new Ingredient("salt");
+		Ingredient pepper = new Ingredient("pepper");
+		
+		MealPlannerService service = new MealPlannerService(mp);
+
+		List<Ingredient> ingredients = new ArrayList<Ingredient>();
+		ingredients.add(salt);
+		Recipe r1 = service.createRecipe("recommendation", 20, ingredients);
+		
+		ingredients.add(pepper);
+		User u = service.createUser(username, password, calorieGoal, ingredients);
+		
+		Recipe r = service.recommendRecipe(username);	
+		
+		assertEquals(r, r1);
 		
 	}
 
