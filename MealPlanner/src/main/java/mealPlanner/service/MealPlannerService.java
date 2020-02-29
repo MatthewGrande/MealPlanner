@@ -113,11 +113,8 @@ public class MealPlannerService {
 	public User createUser(String username, String password, int calorieGoal) throws InvalidInputException {
 
 		// Check if username is already in database
-		List<User> userList = mp.getUsers();
-		for (User u : userList) {
-			if (u.getUsername().contentEquals(username)) {
-				throw new InvalidInputException("This username is taken.");
-			}
+		if (getUser(username) != null) {
+			throw new InvalidInputException("This username is taken.");
 		}
 
 		Day today = new Day(new Date(0, 0, 0), 0);
@@ -126,6 +123,24 @@ public class MealPlannerService {
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return u;
 	}
+	
+	public User createUser(String username, String password, int calorieGoal, List<Ingredient> ownedIngredients) throws InvalidInputException {
+
+		// Check if username is already in database
+		if (getUser(username) != null) {
+			throw new InvalidInputException("This username is taken.");
+		}
+
+		Day today = new Day(new Date(0, 0, 0), 0);
+		User u = new User(username, password, calorieGoal, today);
+		for(Ingredient i : ownedIngredients) {
+			u.addOwnedIngredient(1, i);
+		}
+		mp.addUser(u);
+		PersistenceXStream.saveToXMLwithXStream(mp);
+		return u;
+	}
+
 	
 	/**
 	 * 
@@ -396,6 +411,43 @@ public class MealPlannerService {
 		}
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return true;
+	}
+	
+	/**
+	 * Recommend a recipe to a user based on their owned ingredients
+	 * @param username
+	 * @return list of recommended recipes
+	 */
+	public Recipe recommendRecipe(String username){
+		User user = getUser(username);
+		List<Ingredient> userIngredients = new ArrayList<Ingredient>();
+		for(OwnedIngredient o : user.getOwnedIngredients()) {
+			userIngredients.add(o.getIngredient());
+		}
+
+		for(Recipe r : mp.getRecipes()) {
+			boolean hasIngredients = true;
+			int index = 0;
+			while(index < r.getIngredients().size() && hasIngredients) {
+				if(user.getOwnedIngredient(r.getIngredients().get(index).getName()) == null) {
+					hasIngredients = false;
+				}
+				index++;
+			}
+			if(hasIngredients) {
+				return r;
+			}
+		}
+		return null;
+	}
+	
+	public Recipe createRecipe(String name, int calories, List<Ingredient> ingredients) {
+		Recipe r = new Recipe(name, calories);
+		
+		r.setIngredients(ingredients);
+		mp.addRecipe(r);
+		PersistenceXStream.saveToXMLwithXStream(mp);
+		return r;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mealPlanner.dto.MealDto;
 import mealPlanner.dto.OwnedIngredientDto;
+import mealPlanner.dto.RecipeDto;
 import mealPlanner.dto.UserDto;
 import mealPlanner.model.DietType;
 import mealPlanner.model.Meal;
@@ -114,10 +116,24 @@ public class MealPlannerRestController {
 
 		return convertToDto(m);
 	}
+	
+	@GetMapping(value = { "reccomendMeals/{username}" })
+
+	public RecipeDto recommendRecipe(@PathVariable("username") String username) throws InvalidInputException {
+
+		Recipe r = service.recommendRecipe(username);
+
+		return convertToDto(r);
+	}
 
 	private MealDto convertToDto(Meal m) {
 
 		return modelMapper.map(m, MealDto.class);
+	}
+	
+	private RecipeDto convertToDto(Recipe r) {
+
+		return modelMapper.map(r, RecipeDto.class);
 	}
 
 }
