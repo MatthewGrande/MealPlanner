@@ -7,43 +7,57 @@ import { Flex, Heading, FormControl,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
-  NumberDecrementStepper, Image } from '@chakra-ui/core';
+  NumberDecrementStepper, Image} from '@chakra-ui/core';
 
 import LoggedInNavbar from '../components/LoggedInNavbar';
 
 function MealLog() {
 	return (
-		<Flex width="100%" height="100vh" direction="column" align="center">
+		<Flex width="100%" height="100vh" direction="column" align="left">
 			<LoggedInNavbar></LoggedInNavbar>
 			<br></br>
-			<Heading textAlign= "center">Saved Recipes</Heading>
+			<Heading textAlign= "left">Search for a recipe:</Heading>
 			<Stack shouldWrapChildren isInline spacing={30}>
 				<FormControl>
 				  <br></br>
-				  <Button
-							background="white"
-							variantColor="teal"
-							variant="outline"
-							size="md"
-							width = "300px"
-						>
-						Delete Saved Recipe
-						</Button>
-				</FormControl>
-				<FormControl>
+				  <Input placeholder="Enter recipe" />
 				  <br></br>
 				  <Button
 							background="white"
 							variantColor="teal"
 							variant="outline"
 							size="md"
-							width = "300px"
+							width = "100px"
 						>
-						<a href="/AddSavedRecipes">Add Saved Recipe</a>
-						</Button>
+						Search
+					</Button>
+					<br></br><br></br><br></br>
+				<Heading textAlign= "left">List results:</Heading>
+				##Backend needed
+				<br></br>
+				<br></br>
+				 <Button
+							background="white"
+							variantColor="teal"
+							variant="outline"
+							size="md"
+							width = "100px"
+						>
+						<a href="/ViewSavedRecipes">Cancel</a>
+					</Button>
+				<Button
+							background="white"
+							variantColor="teal"
+							variant="outline"
+							size="md"
+							width = "100px"
+						>
+						<a href="/ViewSavedRecipes">Save</a>
+					</Button>
+
+
 				</FormControl>			
 			</Stack>
-			<br></br>
 			</Flex>
 		
 	);
