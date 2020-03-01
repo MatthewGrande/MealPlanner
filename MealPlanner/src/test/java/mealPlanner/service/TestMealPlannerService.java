@@ -141,9 +141,6 @@ public class TestMealPlannerService {
 				assertEquals(e.getMessage(),("User not found."));
 			}
 		
-	
-		
-		
 	}
 	
 	@Test
@@ -395,6 +392,7 @@ public class TestMealPlannerService {
 
 	}
 	
+	@Test
 	public void testViewMealSuggestions() throws InvalidInputException {
 		String username = "user1";
 		String password = "password1";
@@ -444,7 +442,6 @@ public class TestMealPlannerService {
 			
 		}
 		
-=======
 	public void testUserLogsValidMeal() throws InvalidInputException{
 		String username = "user1";
 		String password = "password1";
