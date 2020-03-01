@@ -421,26 +421,26 @@ public class TestMealPlannerService {
 			} catch (InvalidInputException e) {
 				assertEquals(e.getMessage(),("User not found."));
 			}
+	}
 		
-		@Test
-		public void viewPersonalAccount() throws InvalidInputException {
+	@Test
+	public void viewPersonalAccount() throws InvalidInputException {
+		
+		assertEquals(0, mp.getUsers().size());
 
-			assertEquals(0, mp.getUsers().size());
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
 
-			String username = "user1";
-			String password = "password1";
-			int calorieGoal = 2000;
+		MealPlannerService service = new MealPlannerService(mp);
 
-			MealPlannerService service = new MealPlannerService(mp);
-
-//			service.createUser(username, password, calorieGoal).viewAccount();
-			assertEquals(1, mp.getUsers().size());
-			assertEquals(username, mp.getUser(0).getUsername());
-			assertEquals(password, mp.getUser(0).getPassword());
-			assertEquals(calorieGoal, mp.getUser(0).getGoalCalorie());
-			
-			
-		}
+//		service.createUser(username, password, calorieGoal).viewAccount();
+		assertEquals(1, mp.getUsers().size());
+		assertEquals(username, mp.getUser(0).getUsername());
+		assertEquals(password, mp.getUser(0).getPassword());
+		assertEquals(calorieGoal, mp.getUser(0).getGoalCalorie());
+					
+	}
 		
 	public void testUserLogsValidMeal() throws InvalidInputException{
 		String username = "user1";
