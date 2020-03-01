@@ -3,9 +3,9 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { ThemeProvider } from '@chakra-ui/core';
 import { render, cleanup } from '@testing-library/react';
-import LoginRegister from './LoginRegister';
+import MealLog from './AddSavedRecipes';
 
-describe('Login Register Tests', () => {
+describe('Add Saved Recipes Tests', () => {
 	afterAll(() => {
 		cleanup();
 	});
@@ -15,21 +15,12 @@ describe('Login Register Tests', () => {
 		const { getByPlaceholderText } = render(
 			<ThemeProvider>
 				<Router history={history}>
-					<LoginRegister />
+					<MealLog />
 				</Router>
 			</ThemeProvider>
 		);
 
-		const nameInput = getByPlaceholderText('Full Name');
-		expect(nameInput).toBeDefined();
-
-		const emailInput = getByPlaceholderText('Email');
-		expect(emailInput).toBeDefined();
-
-		const passwordInput = getByPlaceholderText('Password');
-		expect(passwordInput).toBeDefined();
-
-		const secondPasswordInput = getByPlaceholderText('Re-enter password');
-		expect(secondPasswordInput).toBeDefined();
+		const enterRecipeInput = getByPlaceholderText('Enter recipe');
+		expect(enterRecipeInput).toBeDefined();
 	});
 });
