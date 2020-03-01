@@ -168,6 +168,48 @@ public class StepDefinitions {
 		}
 		clean();
 	}
+	
+	// Logging Meals
+	@Given("the User {string} wants to log a <Meal> they have eaten")
+	public void the_initial_List_of_Logged_meals_for_the_user_is(String string, DataTable dataTable) {
+		setup();
+		
+		User u = null;
+		try {
+			u = this.service.createUser(string, "pass", 0);
+		}
+		catch (InvalidInputException e) {
+		}
+		
+		for (Map<String, String> x: dataTable.asMaps()) {
+			Day today = new Day(new Date(0, 0, 0), 0);
+			Recipe recipe= new Recipe(x.get("<aCalorieCountPerServing>"),x.get("<name>"));
+			Recipe recipe_index = x.getRecipe("<recipe_index>");
+			Meal m = new Meal(x.get("<recipe_index>"),x.get("<amount>"), today);
+			u.logMeal(m);
+		}
+	}
+	
+	@When("User {string} adds <recipe_index> and <Amount> to her logged meals")
+	public void is_on_the_add_own__and_add_my_RecipeName_and_Amount(String string, DataTable dataTable) {
+		for (Map<String, String> x: dataTable.asMaps()) {
+			try {
+				service.enterOwnIngredient(string, x.get("<recipe_index>"), Integer.parseInt(x.get("<amount>")));
+			} catch (NumberFormatException e) {
+			} catch (InvalidInputException e) {
+			}
+		}
+	}
+
+	@Then("the User {string} has now logged the following <Meals>:")
+	public void the_User_now_logged_the_following_Meals(String string, DataTable dataTable) {
+		for (Map<String, String> x: dataTable.asMaps()) {
+			User y = service.getUser(x.get("<username>"));
+			assertEquals(y.getOwnedIngredient(string, x.get("<ingredientName>"), Integer.parseInt(x.get("<quantity>")));
+		}
+		clean();
+	}
+	
    
 }
 
