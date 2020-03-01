@@ -11,6 +11,7 @@ import AccountSettings from './routes/AccountSettings';
 import DietInformation from './routes/DietInformation';
 import MealSuggestions from './routes/MealSuggestions';
 import ViewSavedRecipes from './routes/ViewSavedRecipes';
+import Profile from './routes/Profile';
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
 					</Route>
 					<Route exact path="/ViewSavedRecipes">
 						<ViewSavedRecipes></ViewSavedRecipes>
+					</Route>
+					<Route exact path="/Profile">
+						<Profile></Profile>
 					</Route>
 				</Switch>
 			</Router>
