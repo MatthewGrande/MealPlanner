@@ -504,5 +504,33 @@ public class TestMealPlannerService {
 		assertEquals(r, r1);
 		
 	}
+	
+	@Test
+	public void testRecommendedRecipesWithDietTypes() throws InvalidInputException{
+
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+
+		Ingredient salt = new Ingredient("salt");
+		Ingredient pepper = new Ingredient("pepper");
+		List<DietType> vegan = new ArrayList<DietType>();
+		vegan.add(new DietType("vegan"));
+		
+		MealPlannerService service = new MealPlannerService(mp);
+
+		List<Ingredient> ingredients = new ArrayList<Ingredient>();
+		ingredients.add(salt);
+		service.createRecipe("recommendation", 20, ingredients);
+		Recipe r1 = service.createRecipe("recommendation", 20, ingredients, vegan);
+		
+		ingredients.add(pepper);
+		User u = service.createUser(username, password, calorieGoal, ingredients, vegan);
+
+		Recipe r = service.recommendRecipe(username);	
+		
+		assertEquals(r, r1);
+		
+	}
 
 }

@@ -111,20 +111,13 @@ public class MealPlannerService {
 	}
 
 	public User createUser(String username, String password, int calorieGoal) throws InvalidInputException {
-
-		// Check if username is already in database
-		if (getUser(username) != null) {
-			throw new InvalidInputException("This username is taken.");
-		}
-
-		Day today = new Day(new Date(0, 0, 0), 0);
-		User u = new User(username, password, calorieGoal, today);
-		mp.addUser(u);
-		PersistenceXStream.saveToXMLwithXStream(mp);
-		return u;
+		return createUser(username, password, calorieGoal, null, null);
 	}
 	
 	public User createUser(String username, String password, int calorieGoal, List<Ingredient> ownedIngredients) throws InvalidInputException {
+		return createUser(username, password, calorieGoal, ownedIngredients, null);
+	}
+	public User createUser(String username, String password, int calorieGoal, List<Ingredient> ownedIngredients, List<DietType> dietTypes) throws InvalidInputException {
 
 		// Check if username is already in database
 		if (getUser(username) != null) {
@@ -133,8 +126,15 @@ public class MealPlannerService {
 
 		Day today = new Day(new Date(0, 0, 0), 0);
 		User u = new User(username, password, calorieGoal, today);
-		for(Ingredient i : ownedIngredients) {
-			u.addOwnedIngredient(1, i);
+		if(ownedIngredients != null) {
+			for(Ingredient i : ownedIngredients) {
+				u.addOwnedIngredient(1, i);
+			}
+		}
+		if(dietTypes != null) {
+			for(DietType d : dietTypes) {
+				u.addDietType(d);
+			}
 		}
 		mp.addUser(u);
 		PersistenceXStream.saveToXMLwithXStream(mp);
@@ -420,11 +420,7 @@ public class MealPlannerService {
 	 */
 	public Recipe recommendRecipe(String username){
 		User user = getUser(username);
-		List<Ingredient> userIngredients = new ArrayList<Ingredient>();
-		for(OwnedIngredient o : user.getOwnedIngredients()) {
-			userIngredients.add(o.getIngredient());
-		}
-
+		List<DietType> userDietTypes = user.getDietType();
 		for(Recipe r : mp.getRecipes()) {
 			boolean hasIngredients = true;
 			int index = 0;
@@ -434,17 +430,36 @@ public class MealPlannerService {
 				}
 				index++;
 			}
-			if(hasIngredients) {
+			boolean matchesDietType = true;
+			List<DietType> recipeDietTypes = r.getDietType();
+			for(DietType d : userDietTypes) {
+				matchesDietType = false;
+				for(DietType d2 : recipeDietTypes) {
+					if(d.getType().equals(d2.getType())) {
+						matchesDietType = true;
+					}
+				}
+			}
+			if(hasIngredients && matchesDietType) {
 				return r;
 			}
 		}
 		return null;
+	
+	}
+	public Recipe createRecipe(String name, int calories, List<Ingredient> ingredients) {
+		return createRecipe(name, calories, ingredients, null);
 	}
 	
-	public Recipe createRecipe(String name, int calories, List<Ingredient> ingredients) {
+	public Recipe createRecipe(String name, int calories, List<Ingredient> ingredients, List<DietType> dietTypes) {
 		Recipe r = new Recipe(name, calories);
-		
 		r.setIngredients(ingredients);
+		
+		if(dietTypes != null) {
+			for(DietType d : dietTypes) {
+				r.addDietType(d);
+			}
+		}
 		mp.addRecipe(r);
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return r;
