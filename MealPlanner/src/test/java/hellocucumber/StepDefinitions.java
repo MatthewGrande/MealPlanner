@@ -86,7 +86,7 @@ public class StepDefinitions {
 	public void julianna_inputs_her_username_password_and_email_to_create_an_account(DataTable dataTable) throws InvalidInputException {
 		for (Map<String, String> x: dataTable.asMaps()) {
 
-				service.createUser(x.get("<username>"), x.get("<password>"), 0);
+				service.createUser(x.get("<username>"), x.get("<password>"), 1500);
 		}
 	}
 	
@@ -137,7 +137,7 @@ public class StepDefinitions {
 		setup();
 		
 		User u = null;
-			u = this.service.createUser(string, "pass", 0);
+			u = this.service.createUser(string, "pass", 1300);
 		
 		for (Map<String, String> x: dataTable.asMaps()) {
 			Ingredient i = new Ingredient(x.get("<ingredientName>"));
