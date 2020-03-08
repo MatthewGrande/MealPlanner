@@ -7,8 +7,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import mealPlanner.model.Day;
 import mealPlanner.model.Ingredient;
+import mealPlanner.model.Meal;
 import mealPlanner.model.MealPlannerApp;
 import mealPlanner.model.OwnedIngredient;
+import mealPlanner.model.Recipe;
 import mealPlanner.model.User;
 import mealPlanner.persistence.PersistenceXStream;
 import mealPlanner.service.InvalidInputException;
@@ -17,6 +19,7 @@ import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +31,10 @@ public class StepDefinitions {
 
 	private MealPlannerApp mp;
 	private MealPlannerService service;
+	private Meal loggedMeal = null;
 	
+	private Day date;
+	private ArrayList<String> suggestedRecipe;
     private void setup() {
 		this.mp = new MealPlannerApp();
 		
@@ -187,7 +193,135 @@ public class StepDefinitions {
 		} catch (InvalidInputException e) {
 		}
 	}
+	
+	//Log Meal Gherkin:
+	@Given("The following list of meals exists in the MealPlanner database:")
+	public void the_following_list_of_meals_exists_in_the_MealPlanner_database(DataTable dataTable) {
+		setup();
+		for (Map<String, String> x: dataTable.asMaps()) {
+			Recipe r = new Recipe(x.get("<Recipe>"), Integer.parseInt(x.get("<CalorieCount>")));
+			mp.addRecipe(r);
+		}
+	}
+	
+	@When("{string} logs the following meal:")
+	public void logs_the_following_meal(String string, DataTable dataTable) throws InvalidInputException {
+		String username = string;
+		String password = "temp";
+		this.date = new Day(new Date(0,0,0), 100);
+		int calorieGoal = 2000;
+		User u = service.createUser(username, password, calorieGoal);
+		u.setCurrentDay(date);
+		
+		for (Map<String, String> x: dataTable.asMaps()) {
+			try {
+				this.loggedMeal = service.logMeal(username, x.get("<Recipe>"), Integer.parseInt(x.get("<servings>")));
+			} catch (NumberFormatException e) {
+			} catch (InvalidInputException e) {
+			}
+			
+		}
+	}
 
+	@Then("The list of user {string} logged meals is updated.")
+	public void the_list_of_user_logged_meals_is_updated(String string, DataTable dataTable) {
+		
+		for (Map<String, String> x: dataTable.asMaps()) {
+			assertEquals(this.loggedMeal.getRecipe().getName(), x.get("<Meal>"));
+		}
+		clean();
+	}
+	
+	@Then("{string} meal is not logged")
+	public void meal_is_not_logged(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+		assertEquals(this.loggedMeal, null);
+		clean();
+	}
+	
+	
+	//View Meal Suggestions:
+	
+	@When("{string} is on the meal suggestion menu and specifies an <ingredientName>:")
+	public void is_on_the_meal_suggestion_menu_and_specifies_an_ingredientName(String string, DataTable dataTable) {
+		
+		ArrayList<String> providedIngredients = new ArrayList<String>();
+		
+		for (Map<String, String> x: dataTable.asMaps()) {
+			providedIngredients.add(x.get("<ingredientName>"));
+		}
+		this.suggestedRecipe = this.service.recommendRecipeFromProvidedIngredients(providedIngredients);
+	}
+
+	@Then("I should receive meal suggestions including the <IngredientName>")
+	public void i_should_receive_meal_suggestions_including_the_IngredientName(DataTable dataTable) {
+		for (Map<String, String> x: dataTable.asMaps()) {
+			assertEquals(this.suggestedRecipe.contains(x.get("<recipe>")), true);
+		}
+	    clean();
+	}
+	
+	//View saved Meals:
+	@When("user {string} is on the recipes page and saves the following <recipe>:")
+	public void user_is_on_the_recipes_page_and_saves_the_following_recipe(String string, DataTable dataTable) throws InvalidInputException {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	    //
+	    // For other transformations you can register a DataTableType.
+		String username = string;
+		String password = "temp";
+		int calorieGoal = 2000;
+		User u = service.createUser(username, password, calorieGoal);
+		
+		for (Map<String, String> x: dataTable.asMaps()) {
+			try {
+				service.addToSavedRecipes(username, x.get("<recipe>"));
+			} catch (NumberFormatException e) {
+			} catch (InvalidInputException e) {
+			}
+			
+		}
+	}
+
+	@Then("the User {string} now has following <savedRecipes>:")
+	public void the_User_now_has_following_savedRecipes(String string, DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	    //
+	    // For other transformations you can register a DataTableType.
+		try {
+			List<Recipe> r = service.viewSavedRecipes(string);
+			ArrayList<String> savedRecipeNames = new ArrayList<String>();
+			for (Recipe tempR : r) {
+				savedRecipeNames.add(tempR.getName());
+			}
+			
+			for (Map<String, String> x: dataTable.asMaps()) {
+				assertEquals(savedRecipeNames.contains(x.get("<savedRecipes>")), true);
+			}
+		}
+		catch (InvalidInputException e) {
+			assert(false);
+		}
+	    clean();
+	}
+
+	@Then("the User {string} has no saved recipes")
+	public void the_User_has_no_saved_recipes(String string) {
+		try {
+			List<Recipe> r = service.viewSavedRecipes(string);
+		}
+		catch (InvalidInputException e){
+			assertEquals(e.getMessage(), "No saved recipes.");
+		}
+		clean();
+	}
 }
 
 class IsItFriday {

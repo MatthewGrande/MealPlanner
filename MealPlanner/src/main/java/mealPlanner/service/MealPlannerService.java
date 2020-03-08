@@ -452,7 +452,26 @@ public class MealPlannerService {
 		return null;
 
 	}
+	
+	/**
+	 * Recommend recipe to be used for gherkin test.
+	 * @param ingNames
+	 * @return
+	 */
+	public ArrayList<String> recommendRecipeFromProvidedIngredients(List<String> ingNames){
+		ArrayList<String> ar = new ArrayList<String>();
 
+		for (Recipe r : mp.getRecipes()) {
+			for (String ingName: ingNames) {
+				if (!r.getName().contains(ingName)) {
+					continue;
+				}
+				ar.add(r.getName());
+			}
+		}
+		return ar;
+	}
+	
 	public Recipe createRecipe(String name, int calories, List<Ingredient> ingredients) {
 		return createRecipe(name, calories, ingredients, null);
 	}
