@@ -90,13 +90,18 @@ public class StepDefinitions {
 			}
 			catch (InvalidInputException e) {
 			}
+
 		}
 	}
 	
 	@Then("the final List of users in the MealPLannerService is:")
 	public void the_final_List_of_users_in_the_MealPLannerService_is(DataTable dataTable) {
 		for (Map<String, String> x: dataTable.asMaps()) {
-			User y = service.getUser(x.get("<username>"));
+			User y = null;
+			try {
+				y = service.getUser(x.get("<username>"));
+			} catch (InvalidInputException e) {
+			}
 			assertEquals(y.getPassword(), x.get("<password>"));
 		}
 		clean();
@@ -106,6 +111,7 @@ public class StepDefinitions {
 	@When("a user inputs their <username> and <password> to login:")
 	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) {
 		for (Map<String, String> x: dataTable.asMaps()) {
+
 			try {
 				this.service.isValidLogin(x.get("<username>"), x.get("<password>"));
 			}
@@ -163,7 +169,11 @@ public class StepDefinitions {
 	@Then("the User {string} now owns the following <Ingredients>:")
 	public void the_User_now_owns_the_following_Ingredients(String string, DataTable dataTable) {
 		for (Map<String, String> x: dataTable.asMaps()) {
-			User y = service.getUser(x.get("<username>"));
+			User y = null;
+			try {
+				y = service.getUser(x.get("<username>"));
+			} catch (InvalidInputException e) {
+			}
 			assertEquals(y.getOwnedIngredient(x.get("<ingredientName>")).getAmount(), Integer.parseInt(x.get("<quantity>")));
 		}
 		clean();

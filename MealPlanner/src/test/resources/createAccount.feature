@@ -36,5 +36,5 @@ So that I can log my daily meals
       | <user>    | <username> | <password> | <email>      | 
       | TudorG    | tudor_T    | aa001      | tg@gmail.com | 
       | MatthewG  | MG002      | matt_M     | mg@gmail.com | 
-      | JuliannaT | JT003      | jules      | jt@gmail.com | 
+      | Julianna | JT003      | jules      | j@gmail.com | 
   
