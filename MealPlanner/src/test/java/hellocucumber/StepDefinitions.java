@@ -83,13 +83,10 @@ public class StepDefinitions {
 	}
 	
 	@When("Julianna inputs her <username>, <password>, and <email> to create an account:")
-	public void julianna_inputs_her_username_password_and_email_to_create_an_account(DataTable dataTable) {
+	public void julianna_inputs_her_username_password_and_email_to_create_an_account(DataTable dataTable) throws InvalidInputException {
 		for (Map<String, String> x: dataTable.asMaps()) {
-			try {
+
 				service.createUser(x.get("<username>"), x.get("<password>"), 0);
-			}
-			catch (InvalidInputException e) {
-			}
 		}
 	}
 	
@@ -110,13 +107,11 @@ public class StepDefinitions {
 	
 	// Logged in 
 	@When("a user inputs their <username> and <password> to login:")
-	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) {
+	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) throws InvalidInputException {
 		for (Map<String, String> x: dataTable.asMaps()) {
-			try {
+			
 				this.service.isValidLogin(x.get("<username>"), x.get("<password>"));
-			}
-			catch (InvalidInputException e) {
-			}
+
 		}
 	}
 
@@ -138,15 +133,11 @@ public class StepDefinitions {
 	
 	//Enter Owned Ingredients gherkins
 	@Given("the User {string} owns the following <Ingredients>:")
-	public void the_User_owns_the_following_Ingredients(String string, DataTable dataTable) {
+	public void the_User_owns_the_following_Ingredients(String string, DataTable dataTable) throws InvalidInputException {
 		setup();
 		
 		User u = null;
-		try {
 			u = this.service.createUser(string, "pass", 0);
-		}
-		catch (InvalidInputException e) {
-		}
 		
 		for (Map<String, String> x: dataTable.asMaps()) {
 			Ingredient i = new Ingredient(x.get("<ingredientName>"));
@@ -167,14 +158,10 @@ public class StepDefinitions {
 	}
 
 	@Then("the User {string} now owns the following <Ingredients>:")
-	public void the_User_now_owns_the_following_Ingredients(String string, DataTable dataTable) {
+	public void the_User_now_owns_the_following_Ingredients(String string, DataTable dataTable) throws InvalidInputException {
 		for (Map<String, String> x: dataTable.asMaps()) {
 			User y = null;
-			try {
 				y = service.getUser(x.get("<username>"));
-			} catch (InvalidInputException e) {
-				e.printStackTrace();
-			}
 			assertEquals(y.getOwnedIngredient(x.get("<ingredientName>")).getAmount(), Integer.parseInt(x.get("<quantity>")));
 		}
 		clean();
