@@ -490,6 +490,22 @@ public class MealPlannerService {
 		return r;
 	}
 	
+	public User getUserByUsername(String userName) throws InvalidInputException {
+		List<User> users = mp.getUsers();
+		User user = null;
+		for (User p : users) {
+			if (p.getUsername() == userName) {
+				user = p;
+			}
+		}
+		if (user == null) {
+			throw new InvalidInputException("user doesn't exist!");
+		} else {
+			return user;
+		}
+
+	}
+	
 	public int enterDietGoal(String username, int calorieGoal) throws InvalidInputException{
 		User u = getUser(username);
 		if(u == null) {
@@ -499,7 +515,7 @@ public class MealPlannerService {
 			throw new InvalidInputException("Goal must be a positive number.");
 		}
 		u.setGoalCalorie(calorieGoal);
-		
+		PersistenceXStream.saveToXMLwithXStream(mp);
 		return calorieGoal;
 	}
 
