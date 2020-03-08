@@ -1079,9 +1079,11 @@ public class TestMealPlannerService {
 		int calorieGoal = 2000;
 		int newGoal = 500;
 		User u = service.createUser(username, password, calorieGoal);
-		
+		mp.addUser(u);
 		int newCalorieGoal = service.enterDietGoal(username, newGoal);
-		assertEquals(newCalorieGoal, newGoal);
+		User thisuser= service.getUserByUsername(username);
+		int gottengoal= thisuser.getGoalCalorie();
+		assertEquals(gottengoal, newGoal);
 
 	}
 
