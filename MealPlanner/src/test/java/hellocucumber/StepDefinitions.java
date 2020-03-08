@@ -111,10 +111,13 @@ public class StepDefinitions {
 	
 	// Logged in 
 	@When("a user inputs their <username> and <password> to login:")
-	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) throws InvalidInputException {
+	public void a_user_inputs_their_username_and_password_to_login(DataTable dataTable) {
 		for (Map<String, String> x: dataTable.asMaps()) {
 
-				this.service.isValidLogin(x.get("<username>"), x.get("<password>"));
+				try {
+					this.service.isValidLogin(x.get("<username>"), x.get("<password>"));
+				} catch (InvalidInputException e) {
+				}
 
 		}
 	}
