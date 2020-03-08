@@ -109,10 +109,10 @@ public class MealPlannerRestController {
 
 	public MealDto logMeal(
 
-			@PathVariable("username") String username, @RequestParam("recipe") int recipeIndex,
+			@PathVariable("username") String username, @RequestParam("recipe") String recipeName,
 			@RequestParam("amount") int amount) throws InvalidInputException {
 
-		Meal m = service.logMeal(username, recipeIndex, amount);
+		Meal m = service.logMeal(username, recipeName, amount);
 
 		return convertToDto(m);
 	}
