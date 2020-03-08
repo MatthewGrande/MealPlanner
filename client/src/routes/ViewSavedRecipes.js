@@ -25,7 +25,7 @@ function MealLog() {
 							variantColor="teal"
 							variant="outline"
 							size="md"
-							width = "300px"
+							width = "200px"
 						>
 						Delete Saved Recipe
 						</Button>
@@ -37,7 +37,7 @@ function MealLog() {
 							variantColor="teal"
 							variant="outline"
 							size="md"
-							width = "300px"
+							width = "200px"
 						>
 						<a href="/AddSavedRecipes">Add Saved Recipe</a>
 						</Button>
