@@ -369,7 +369,42 @@ public class TestMealPlannerService {
 		assertEquals("User not found.", error);
 
 	}
+	
+	@Test
+	public void testLoginThenViewSavedRecipes() throws InvalidInputException {
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		boolean isValid = false;
 
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+
+		try {
+			isValid = service.isValidLogin(username, password);
+
+		} catch (InvalidInputException e) {
+			e.getMessage();
+		}
+
+		assertEquals(true, isValid);
+		
+		Recipe r = new Recipe("Pestont", 800);
+		List<Recipe> rlist = null;
+
+		service.getLoggedInUser().addSavedRecipe(r);
+
+		try {
+			rlist = service.viewSavedRecipes(username);
+
+		} catch (InvalidInputException e) {
+			e.getMessage();
+		}
+
+		assertEquals(1, rlist.size());
+		assertEquals(service.getUser(username).getSavedRecipes(), rlist);
+	}
 	@Test
 	public void testDeleteNonUser() throws InvalidInputException {
 		String username = "user1";
