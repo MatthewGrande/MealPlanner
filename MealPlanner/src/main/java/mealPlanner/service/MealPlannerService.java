@@ -470,5 +470,18 @@ public class MealPlannerService {
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return r;
 	}
+	
+	public int enterDietGoal(String username, int calorieGoal) throws InvalidInputException{
+		User u = getUser(username);
+		if(u == null) {
+			throw new InvalidInputException("Username must be valid.");
+		}
+		if(calorieGoal < 0) {
+			throw new InvalidInputException("Goal must be a positive number.");
+		}
+		u.setGoalCalorie(calorieGoal);
+		
+		return calorieGoal;
+	}
 
 }

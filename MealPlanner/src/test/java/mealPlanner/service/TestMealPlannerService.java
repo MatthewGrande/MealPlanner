@@ -1035,5 +1035,58 @@ public class TestMealPlannerService {
 		assertEquals(r, r1);
 
 	}
+	
+	@Test public void testUserEnterValidDietGoals() throws InvalidInputException{
+		MealPlannerService service = new MealPlannerService(mp);
+		
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int newGoal = 500;
+		User u = service.createUser(username, password, calorieGoal);
+		
+		int newCalorieGoal = service.enterDietGoal(username, newGoal);
+		assertEquals(newCalorieGoal, newGoal);
 
+	}
+
+	@Test public void testUserEnterDietGoalsInvalidUsername() throws InvalidInputException{
+		MealPlannerService service = new MealPlannerService(mp);
+		
+		String error = "";
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int newGoal = 500;
+		try {
+			User u = service.createUser("user2", password, calorieGoal);
+			int newCalorieGoal = service.enterDietGoal(username, newGoal);
+
+		}
+		catch(InvalidInputException e) {
+			error = e.getMessage();
+		}
+		assertEquals("Username must be valid.", error);
+
+	}
+	
+	@Test public void testUserEnterDietGoalsInvalidGoal() throws InvalidInputException{
+		MealPlannerService service = new MealPlannerService(mp);
+		
+		String error = "";
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int newGoal = -1;
+		try {
+			User u = service.createUser(username, password, calorieGoal);
+			int newCalorieGoal = service.enterDietGoal(username, newGoal);
+
+		}
+		catch(InvalidInputException e) {
+			error = e.getMessage();
+		}
+		assertEquals("Goal must be a positive number.", error);
+
+	}
 }
