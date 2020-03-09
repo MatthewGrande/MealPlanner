@@ -4,12 +4,8 @@ import {
 	Heading,
 	FormControl,
 	FormLabel,
-	FormErrorMessage,
-	FormHelperText,
 	Input,
-	Box,
 	Button,
-	Text,
 } from '@chakra-ui/core';
 
 import LoggedInNavbar from '../components/LoggedInNavbar';

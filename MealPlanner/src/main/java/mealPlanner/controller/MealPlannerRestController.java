@@ -116,7 +116,7 @@ public class MealPlannerRestController {
 
 		return convertToDto(m);
 	}
-	
+
 	@GetMapping(value = { "reccomendMeals/{username}" })
 
 	public RecipeDto recommendRecipe(@PathVariable("username") String username) throws InvalidInputException {
@@ -130,7 +130,7 @@ public class MealPlannerRestController {
 
 		return modelMapper.map(m, MealDto.class);
 	}
-	
+
 	private RecipeDto convertToDto(Recipe r) {
 
 		return modelMapper.map(r, RecipeDto.class);
