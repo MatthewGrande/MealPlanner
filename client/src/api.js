@@ -11,6 +11,19 @@ export const register = (username, password, calorieGoal) => {
 	});
 };
 
+export const deleteAccount = (username, password) => {
+	return fetch(`/deleteUser/${username}`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			password,
+		}),
+	});
+};
+
 export const getProgress = username => {
 	// Hardcoded since backend endpoint doesn't exist yet
 	return new Promise(resolve => resolve(0.42));

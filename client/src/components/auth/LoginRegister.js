@@ -6,7 +6,6 @@ import styled from '@emotion/styled';
 import loginRegisterReducer, {
 	changeInput,
 	createInitialState,
-	setErrorMessage,
 	changeIsLogin,
 } from './reducer';
 import { Title, Text } from '../shared/TextComponents';
@@ -93,7 +92,7 @@ function LoginRegister() {
 			background="teal"
 		>
 			<ImageWrapper>
-				<img src={Logo} />
+				<img src={Logo} alt="Meal Planner" />
 			</ImageWrapper>
 			<Text color="white" fontSize="xl" mb="2">
 				{!isLogin && `You're just a step away from crushing your diet goals`}

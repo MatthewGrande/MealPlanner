@@ -11,7 +11,7 @@ import { getProgress } from '../api';
 import LoggedInNavbar from '../components/LoggedInNavbar';
 
 function MealLog() {
-	// TODO: pull username from
+	// TODO: pull username from store
 	const username = 'max@maxmusing.com';
 	const [progress, setProgress] = useState(null);
 
