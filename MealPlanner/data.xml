@@ -14,81 +14,827 @@
       <ownedIngredients id="9"/>
       <savedRecipes id="10"/>
     </User>
+    <User id="11">
+      <username>absd@gmail.com</username>
+      <password>27523</password>
+      <goalCalorie>2342</goalCalorie>
+      <dietType id="12"/>
+      <pastDays id="13"/>
+      <currentDay id="14">
+        <date id="15">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="16"/>
+      </currentDay>
+      <ownedIngredients id="17"/>
+      <savedRecipes id="18"/>
+    </User>
+    <User id="19">
+      <username>absd@gmail</username>
+      <password>27523</password>
+      <goalCalorie>2000</goalCalorie>
+      <dietType id="20"/>
+      <pastDays id="21"/>
+      <currentDay id="22">
+        <date id="23">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="24"/>
+      </currentDay>
+      <ownedIngredients id="25"/>
+      <savedRecipes id="26"/>
+    </User>
+    <User id="27">
+      <username>adssd@gmail</username>
+      <password>27523</password>
+      <goalCalorie>2000</goalCalorie>
+      <dietType id="28"/>
+      <pastDays id="29"/>
+      <currentDay id="30">
+        <date id="31">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="32"/>
+      </currentDay>
+      <ownedIngredients id="33"/>
+      <savedRecipes id="34"/>
+    </User>
+    <User id="35">
+      <username>ad@gmail</username>
+      <password>27523</password>
+      <goalCalorie>2000</goalCalorie>
+      <dietType id="36"/>
+      <pastDays id="37"/>
+      <currentDay id="38">
+        <date id="39">1899-12-31</date>
+        <calorieCount>0</calorieCount>
+        <meals id="40"/>
+      </currentDay>
+      <ownedIngredients id="41"/>
+      <savedRecipes id="42"/>
+    </User>
   </users>
-  <recipes id="11">
-    <Recipe id="12">
+  <recipes id="43">
+    <Recipe id="44">
       <calorieCountPerServing>150</calorieCountPerServing>
       <name>marsBar</name>
-      <dietType id="13"/>
-      <ingredients id="14"/>
+      <dietType id="45"/>
+      <ingredients id="46"/>
       <steps></steps>
     </Recipe>
-    <Recipe id="15">
+    <Recipe id="47">
       <calorieCountPerServing>600</calorieCountPerServing>
       <name>Smoked salmon &amp; spinach gratin</name>
-      <dietType id="16"/>
-      <ingredients id="17">
-        <mealPlanner.model.Ingredient id="18">
+      <dietType id="48"/>
+      <ingredients id="49">
+        <mealPlanner.model.Ingredient id="50">
           <name>spinach</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="19">
+        <mealPlanner.model.Ingredient id="51">
           <name>butter</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="20">
+        <mealPlanner.model.Ingredient id="52">
           <name>salmon fillets</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="21">
+        <mealPlanner.model.Ingredient id="53">
           <name>double cream</name>
         </mealPlanner.model.Ingredient>
       </ingredients>
       <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
     </Recipe>
-    <Recipe id="22">
+    <Recipe id="54">
       <calorieCountPerServing>500</calorieCountPerServing>
       <name>Pesto Kale Pasta</name>
-      <dietType id="23">
-        <mealPlanner.model.DietType id="24">
+      <dietType id="55">
+        <mealPlanner.model.DietType id="56">
           <type>Vegeterian</type>
         </mealPlanner.model.DietType>
       </dietType>
-      <ingredients id="25">
-        <mealPlanner.model.Ingredient id="26">
+      <ingredients id="57">
+        <mealPlanner.model.Ingredient id="58">
           <name>pesto</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="27">
+        <mealPlanner.model.Ingredient id="59">
           <name>cream cheese</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="28">
+        <mealPlanner.model.Ingredient id="60">
           <name>rapeseed oil</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="29">
+        <mealPlanner.model.Ingredient id="61">
           <name>red Onion</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="30">
+        <mealPlanner.model.Ingredient id="62">
           <name>kale</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="31">
+        <mealPlanner.model.Ingredient id="63">
           <name>pasta</name>
         </mealPlanner.model.Ingredient>
       </ingredients>
       <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
     </Recipe>
-    <Recipe id="32">
+    <Recipe id="64">
       <calorieCountPerServing>300</calorieCountPerServing>
       <name>Miso mushroom &amp; tofu noodle soup</name>
-      <dietType id="33"/>
-      <ingredients id="34">
-        <mealPlanner.model.Ingredient id="35">
+      <dietType id="65"/>
+      <ingredients id="66">
+        <mealPlanner.model.Ingredient id="67">
           <name>mushrooms</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="36">
+        <mealPlanner.model.Ingredient id="68">
           <name>brown rice</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient id="37">
+        <mealPlanner.model.Ingredient id="69">
           <name>noodles</name>
         </mealPlanner.model.Ingredient>
-        <mealPlanner.model.Ingredient reference="29"/>
-        <mealPlanner.model.Ingredient reference="28"/>
+        <mealPlanner.model.Ingredient reference="61"/>
+        <mealPlanner.model.Ingredient reference="60"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="70">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="71"/>
+      <ingredients id="72">
+        <mealPlanner.model.Ingredient id="73">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="74">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="75">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="76">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="77">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="78">
+        <mealPlanner.model.DietType id="79">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="80">
+        <mealPlanner.model.Ingredient id="81">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="82">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="83">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="84">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="85">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="86">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="87">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="88"/>
+      <ingredients id="89">
+        <mealPlanner.model.Ingredient id="90">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="91">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="92">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="84"/>
+        <mealPlanner.model.Ingredient reference="83"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="93">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="94"/>
+      <ingredients id="95">
+        <mealPlanner.model.Ingredient id="96">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="97">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="98">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="99">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="100">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="101">
+        <mealPlanner.model.DietType id="102">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="103">
+        <mealPlanner.model.Ingredient id="104">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="105">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="106">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="107">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="108">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="109">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="110">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="111"/>
+      <ingredients id="112">
+        <mealPlanner.model.Ingredient id="113">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="114">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="115">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="107"/>
+        <mealPlanner.model.Ingredient reference="106"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="116">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="117"/>
+      <ingredients id="118">
+        <mealPlanner.model.Ingredient id="119">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="120">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="121">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="122">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="123">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="124">
+        <mealPlanner.model.DietType id="125">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="126">
+        <mealPlanner.model.Ingredient id="127">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="128">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="129">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="130">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="131">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="132">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="133">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="134"/>
+      <ingredients id="135">
+        <mealPlanner.model.Ingredient id="136">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="137">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="138">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="130"/>
+        <mealPlanner.model.Ingredient reference="129"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="139">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="140"/>
+      <ingredients id="141">
+        <mealPlanner.model.Ingredient id="142">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="143">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="144">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="145">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="146">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="147">
+        <mealPlanner.model.DietType id="148">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="149">
+        <mealPlanner.model.Ingredient id="150">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="151">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="152">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="153">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="154">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="155">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="156">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="157"/>
+      <ingredients id="158">
+        <mealPlanner.model.Ingredient id="159">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="160">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="161">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="153"/>
+        <mealPlanner.model.Ingredient reference="152"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="162">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="163"/>
+      <ingredients id="164">
+        <mealPlanner.model.Ingredient id="165">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="166">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="167">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="168">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="169">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="170">
+        <mealPlanner.model.DietType id="171">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="172">
+        <mealPlanner.model.Ingredient id="173">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="174">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="175">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="176">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="177">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="178">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="179">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="180"/>
+      <ingredients id="181">
+        <mealPlanner.model.Ingredient id="182">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="183">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="184">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="176"/>
+        <mealPlanner.model.Ingredient reference="175"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="185">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="186"/>
+      <ingredients id="187">
+        <mealPlanner.model.Ingredient id="188">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="189">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="190">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="191">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="192">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="193">
+        <mealPlanner.model.DietType id="194">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="195">
+        <mealPlanner.model.Ingredient id="196">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="197">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="198">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="199">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="200">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="201">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="202">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="203"/>
+      <ingredients id="204">
+        <mealPlanner.model.Ingredient id="205">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="206">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="207">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="199"/>
+        <mealPlanner.model.Ingredient reference="198"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="208">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="209"/>
+      <ingredients id="210">
+        <mealPlanner.model.Ingredient id="211">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="212">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="213">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="214">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="215">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="216">
+        <mealPlanner.model.DietType id="217">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="218">
+        <mealPlanner.model.Ingredient id="219">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="220">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="221">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="222">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="223">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="224">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="225">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="226"/>
+      <ingredients id="227">
+        <mealPlanner.model.Ingredient id="228">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="229">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="230">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="222"/>
+        <mealPlanner.model.Ingredient reference="221"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="231">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="232"/>
+      <ingredients id="233">
+        <mealPlanner.model.Ingredient id="234">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="235">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="236">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="237">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="238">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="239">
+        <mealPlanner.model.DietType id="240">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="241">
+        <mealPlanner.model.Ingredient id="242">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="243">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="244">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="245">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="246">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="247">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="248">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="249"/>
+      <ingredients id="250">
+        <mealPlanner.model.Ingredient id="251">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="252">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="253">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="245"/>
+        <mealPlanner.model.Ingredient reference="244"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="254">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="255"/>
+      <ingredients id="256">
+        <mealPlanner.model.Ingredient id="257">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="258">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="259">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="260">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="261">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="262">
+        <mealPlanner.model.DietType id="263">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="264">
+        <mealPlanner.model.Ingredient id="265">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="266">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="267">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="268">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="269">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="270">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="271">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="272"/>
+      <ingredients id="273">
+        <mealPlanner.model.Ingredient id="274">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="275">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="276">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="268"/>
+        <mealPlanner.model.Ingredient reference="267"/>
+      </ingredients>
+      <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
+    </Recipe>
+    <Recipe id="277">
+      <calorieCountPerServing>600</calorieCountPerServing>
+      <name>Smoked salmon &amp; spinach gratin</name>
+      <dietType id="278"/>
+      <ingredients id="279">
+        <mealPlanner.model.Ingredient id="280">
+          <name>spinach</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="281">
+          <name>butter</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="282">
+          <name>salmon fillets</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="283">
+          <name>double cream</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Put the spinach in a really big saucepan (or two saucepans) and add a few tablespoons of water. Cover, set over a medium heat and cook for about 5-8 mins, turning the spinach over every so often, until wilted. Tip it into a colander to drain and allow it to cool (spread it out on a plate to cool it quicker). Take big handfuls of it in your fists and squeeze out the excess water. It�s really important that you do this, otherwise the water will leach out and make the cream watery and green.-----Chop the spinach. Melt the butter in a saucepan and gently toss the spinach in it. Season with pepper and a tiny bit of salt (there�s so much salt in the salmon). Heat the oven to 160C/140C fan/gas 3. Lay the spinach in the bottom of a gratin dish (about 30cm x 20cm), then arrange the salmon fillets on top.Heat the double cream in a small pan, then pour it all over the salmon and spinach. Bake for 35 mins, or until the top is golden and the cream is bubbling.</steps>
+    </Recipe>
+    <Recipe id="284">
+      <calorieCountPerServing>500</calorieCountPerServing>
+      <name>Pesto Kale Pasta</name>
+      <dietType id="285">
+        <mealPlanner.model.DietType id="286">
+          <type>Vegeterian</type>
+        </mealPlanner.model.DietType>
+      </dietType>
+      <ingredients id="287">
+        <mealPlanner.model.Ingredient id="288">
+          <name>pesto</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="289">
+          <name>cream cheese</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="290">
+          <name>rapeseed oil</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="291">
+          <name>red Onion</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="292">
+          <name>kale</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="293">
+          <name>pasta</name>
+        </mealPlanner.model.Ingredient>
+      </ingredients>
+      <steps>Heat the oil in a large pan over a medium heat. Fry the onions for 10 mins until softened and beginning to caramelise. Add the kale and 100ml water, then cover and cook for 5 mins more, or until the kale has wilted.----Cook the pasta following pack instructions. Drain, reserving a little of the cooking water. Toss the pasta with the onion mixture, cream cheese and pesto, adding a splash of the reserved cooking water to loosen, if needed. Season.</steps>
+    </Recipe>
+    <Recipe id="294">
+      <calorieCountPerServing>300</calorieCountPerServing>
+      <name>Miso mushroom &amp; tofu noodle soup</name>
+      <dietType id="295"/>
+      <ingredients id="296">
+        <mealPlanner.model.Ingredient id="297">
+          <name>mushrooms</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="298">
+          <name>brown rice</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient id="299">
+          <name>noodles</name>
+        </mealPlanner.model.Ingredient>
+        <mealPlanner.model.Ingredient reference="291"/>
+        <mealPlanner.model.Ingredient reference="290"/>
       </ingredients>
       <steps>Heat half the oil in a frying pan over a medium heat. Add the mushrooms and fry for 5-6 mins, or until golden. Transfer to a bowl using a slotted spoon and set aside. Add the remaining oil to the pan and fry the tofu for 3-4 mins, or until evenly golden.------Mix the miso paste with 325ml boiling water in a jug. Cook the noodles following pack instructions, then drain and transfer to a bowl. Top with the mushrooms and tofu, then pour over the miso broth. Scatter over the spring onions just before serving.</steps>
     </Recipe>

@@ -33,7 +33,9 @@ public class MealPlannerRestController {
 
 	@PostMapping(value = { "/newUser/{username}/", "/newUser/{username}" })
 
-	public UserDto createUser(@PathVariable("username") String username, @RequestParam("password") String password,
+	public UserDto createUser(
+			@PathVariable("username") String username, 
+			@RequestParam("password") String password,
 			@RequestParam("calorieGoal") int calorieGoal) throws InvalidInputException {
 
 		User u = service.createUser(username, password, calorieGoal);
@@ -42,7 +44,9 @@ public class MealPlannerRestController {
 
 	@PostMapping(value = { "/deleteUser/{username}/", "/deleteUser/{username}" })
 
-	public UserDto deleteUser(@PathVariable("username") String username, @RequestParam("password") String password)
+	public UserDto deleteUser(
+			@PathVariable("username") String username, 
+			@RequestParam("password") String password)
 			throws InvalidInputException {
 
 		User u = service.deleteUser(username, password);
@@ -56,7 +60,9 @@ public class MealPlannerRestController {
 	}
 
 	@PostMapping(value = { "/Login/{userName}/", "/Login/{userName}" })
-	public void Login(@PathVariable("userName") String userName, @RequestParam("password") String password) {
+	public void Login(
+			@PathVariable("userName") String userName, 
+			@RequestParam("password") String password) {
 		Boolean answer;
 		try {
 			answer = service.isValidLogin(userName, password);
@@ -68,7 +74,9 @@ public class MealPlannerRestController {
 	}
 
 	@PostMapping(value = { "/addSavedRecipe/{userName}/", "/addSavedRecipe/{userName}" })
-	public void AddSavedRcp(@PathVariable("userName") String userName, @RequestParam("RecipeName") String RecipeName) {
+	public void AddSavedRcp(
+			@PathVariable("userName") String userName, 
+			@RequestParam("RecipeName") String RecipeName) {
 		Boolean answer;
 		try {
 			answer = service.addToSavedRecipes(userName, RecipeName);
@@ -78,7 +86,8 @@ public class MealPlannerRestController {
 	}
 
 	@PostMapping(value = { "/deleteSavedRecipe/{userName}/", "/deleteSavedRecipe/{userName}" })
-	public void DeleteSavedRcp(@PathVariable("userName") String userName,
+	public void DeleteSavedRcp(
+			@PathVariable("userName") String userName,
 			@RequestParam("RecipeName") String RecipeName) {
 		Boolean answer;
 		try {
@@ -119,7 +128,8 @@ public class MealPlannerRestController {
 
 	@GetMapping(value = { "reccomendMeals/{username}" })
 
-	public RecipeDto recommendRecipe(@PathVariable("username") String username) throws InvalidInputException {
+	public RecipeDto recommendRecipe(
+			@PathVariable("username") String username) throws InvalidInputException {
 
 		Recipe r = service.recommendRecipe(username);
 

@@ -13,7 +13,7 @@ public class WebFrontendProperties {
 	/**
 	 * The port on which the web frontend listens
 	 */
-	private int port = 8080;
+	private int port = 8087;
 
 	public String getIp() {
 		return ip;
