@@ -32,12 +32,12 @@ public class MealPlannerRestController {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	@PostMapping(value = { "/newUser/{username}/", "/newUser/{username}" })
+	@PostMapping(value = { "/newUser/{username}/{password}/{calorieGoal}/", "/newUser/{username}/{password}/{calorieGoal}" })
 
 	public UserDto createUser(
 			@PathVariable("username") String username, 
-			@RequestParam("password") String password,
-			@RequestParam("calorieGoal") int calorieGoal) throws InvalidInputException {
+			@PathVariable("password") String password,
+			@PathVariable("calorieGoal") int calorieGoal) throws InvalidInputException {
 
 		User u = service.createUser(username, password, calorieGoal);
 		return convertToDto(u);

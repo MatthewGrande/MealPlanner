@@ -9,11 +9,11 @@ public class WebFrontendProperties {
 	/**
 	 * The IP adress of the web frontend client
 	 */
-	private String ip = "127.0.0.1";
+	private String ip = "localhost";
 	/**
 	 * The port on which the web frontend listens
 	 */
-	private int port = 8087;
+	private int port = 3000;
 
 	public String getIp() {
 		return ip;
