@@ -1,5 +1,6 @@
 package mealPlanner.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -134,6 +135,17 @@ public class MealPlannerRestController {
 		Recipe r = service.recommendRecipe(username);
 
 		return convertToDto(r);
+	}
+	
+	@GetMapping(value = { "getRecipes" })
+
+	public List<RecipeDto> getRecipe() {
+		List<Recipe> recipes = service.getRecipes();
+		List<RecipeDto> recipeDtos = new ArrayList<RecipeDto>();
+		for(Recipe r : recipes) {
+			recipeDtos.add(convertToDto(r));
+		}
+		return recipeDtos;
 	}
 
 	private MealDto convertToDto(Meal m) {

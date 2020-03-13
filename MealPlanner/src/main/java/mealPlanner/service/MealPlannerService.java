@@ -518,5 +518,10 @@ public class MealPlannerService {
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return calorieGoal;
 	}
+	
+	public List<Recipe> getRecipes() {
+		return mp.getRecipes();
+	}
+
 
 }

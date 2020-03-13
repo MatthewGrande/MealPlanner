@@ -1,6 +1,7 @@
 package mealPlanner.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -1107,23 +1108,15 @@ public class TestMealPlannerService {
 
 	}
 	
-	@Test public void testUserEnterDietGoalsInvalidGoal() throws InvalidInputException{
+	@Test public void testGetRecipes(){
 		MealPlannerService service = new MealPlannerService(mp);
+		Recipe r1 = service.createRecipe("recipe1", 20, null);
+		Recipe r2 = service.createRecipe("recipe2", 300, null);
 		
-		String error = "";
-		String username = "user1";
-		String password = "password1";
-		int calorieGoal = 2000;
-		int newGoal = -1;
-		try {
-			User u = service.createUser(username, password, calorieGoal);
-			int newCalorieGoal = service.enterDietGoal(username, newGoal);
+		List<Recipe> recipes = service.getRecipes();
 
-		}
-		catch(InvalidInputException e) {
-			error = e.getMessage();
-		}
-		assertEquals("Goal must be a positive number.", error);
-
+		assertEquals(5, recipes.size());
+		assertTrue(recipes.contains(r1));
+		assertTrue(recipes.contains(r2));
 	}
 }
