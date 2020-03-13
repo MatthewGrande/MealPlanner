@@ -1,6 +1,7 @@
 package mealPlanner.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -1125,5 +1126,17 @@ public class TestMealPlannerService {
 		}
 		assertEquals("Goal must be a positive number.", error);
 
+	}
+	
+	@Test public void testGetRecipes(){
+		MealPlannerService service = new MealPlannerService(mp);
+		Recipe r1 = service.createRecipe("recipe1", 20, null);
+		Recipe r2 = service.createRecipe("recipe2", 300, null);
+		
+		List<Recipe> recipes = service.getRecipes();
+
+		assertEquals(5, recipes.size());
+		assertTrue(recipes.contains(r1));
+		assertTrue(recipes.contains(r2));
 	}
 }
