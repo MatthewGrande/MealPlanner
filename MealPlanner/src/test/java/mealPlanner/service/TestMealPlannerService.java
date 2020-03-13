@@ -1108,6 +1108,26 @@ public class TestMealPlannerService {
 
 	}
 	
+	@Test public void testUserEnterDietGoalsInvalidGoal() throws InvalidInputException{
+		MealPlannerService service = new MealPlannerService(mp);
+		
+		String error = "";
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		int newGoal = -1;
+		try {
+			User u = service.createUser(username, password, calorieGoal);
+			int newCalorieGoal = service.enterDietGoal(username, newGoal);
+
+		}
+		catch(InvalidInputException e) {
+			error = e.getMessage();
+		}
+		assertEquals("Goal must be a positive number.", error);
+
+	}
+	
 	@Test public void testGetRecipes(){
 		MealPlannerService service = new MealPlannerService(mp);
 		Recipe r1 = service.createRecipe("recipe1", 20, null);
