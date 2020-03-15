@@ -1139,4 +1139,32 @@ public class TestMealPlannerService {
 		assertTrue(recipes.contains(r1));
 		assertTrue(recipes.contains(r2));
 	}
+	
+	@Test
+	public void testLoginThenGetAllRecipes() throws InvalidInputException {
+		String username = "user1";
+		String password = "password1";
+		int calorieGoal = 2000;
+		boolean isValid = false;
+
+		MealPlannerService service = new MealPlannerService(mp);
+
+		service.createUser(username, password, calorieGoal);
+		Recipe r1 = service.createRecipe("recipe1", 20, null);
+		Recipe r2 = service.createRecipe("recipe2", 300, null);
+
+		try {
+			isValid = service.isValidLogin(username, password);
+
+		} catch (InvalidInputException e) {
+			e.getMessage();
+		}
+
+		assertEquals(true, isValid);
+		List<Recipe> recipes = service.getRecipes();
+
+		assertEquals(5, recipes.size());
+		assertTrue(recipes.contains(r1));
+		assertTrue(recipes.contains(r2));
+	}
 }
