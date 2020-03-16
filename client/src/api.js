@@ -24,6 +24,19 @@ export const deleteAccount = (username, password) => {
 	});
 };
 
+export const deleteSavedRecipe = (username, recipeName) => {
+	return fetch(`/deleteSavedRecipe/${username}`, {
+		method: 'POST',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			RecipeName: recipeName,
+		}),
+	});
+};
+
 export const getProgress = username => {
 	// Hardcoded since backend endpoint doesn't exist yet
 	return new Promise(resolve => resolve(0.42));
