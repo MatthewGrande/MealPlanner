@@ -1,9 +1,17 @@
 import React from 'react';
 import { Flex, Heading, FormControl, Button, Stack } from '@chakra-ui/core';
 
+import { deleteSavedRecipe } from '../api';
 import LoggedInNavbar from '../components/LoggedInNavbar';
 
 function MealLog() {
+	const handleDeleteSavedRecipe = () => {
+		// TODO: update once front end has user and recipe data
+		const username = 'max@maxmusing.com';
+		const recipeName = 'Apple pie';
+		deleteSavedRecipe(username, recipeName);
+	};
+
 	return (
 		<Flex width="100%" height="100vh" direction="column" align="center">
 			<LoggedInNavbar></LoggedInNavbar>
@@ -18,6 +26,7 @@ function MealLog() {
 						variant="outline"
 						size="md"
 						width="200px"
+						onClick={handleDeleteSavedRecipe}
 					>
 						Delete Saved Recipe
 					</Button>
