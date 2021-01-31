@@ -3,6 +3,7 @@ package mealPlanner.service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -147,6 +148,14 @@ public class MealPlannerService {
 		mp.addUser(u);
 		PersistenceXStream.saveToXMLwithXStream(mp);
 		return u;
+	}
+	
+	public Recipe generateRandomRecipe() {
+		List<Recipe> recipes = mp.getRecipes();
+		int len= recipes.size();
+		Random r = new Random();
+		int random= r.nextInt((len-1 - 0) + 1);
+		return recipes.get(random);
 	}
 
 	/**
